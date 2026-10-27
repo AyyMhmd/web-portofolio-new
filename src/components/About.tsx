@@ -1,12 +1,19 @@
 import React from 'react';
+import { motion } from 'motion/react';
 import { PERSONAL_INFO } from '../data/portfolioData';
 
 export const About: React.FC = () => {
   return (
-    <section id="about" className="w-full py-24 max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="about" className="w-full py-24 max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 overflow-hidden">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
         {/* Left: Visual & Profile Representation */}
-        <div className="lg:col-span-5 flex flex-col items-center">
+        <motion.div
+          initial={{ opacity: 0, x: -40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          className="lg:col-span-5 flex flex-col items-center"
+        >
           <div className="relative w-full max-w-sm rounded-2xl overflow-hidden bg-[#171b26] p-2.5 border border-[#262a35] shadow-2xl group hover:border-[#8B5CF6]/50 transition-all">
             <div className="relative w-full aspect-[4/5] rounded-xl overflow-hidden bg-[#1c1f2a]">
               <img
@@ -29,23 +36,38 @@ export const About: React.FC = () => {
 
           {/* Floating Stat Pills */}
           <div className="grid grid-cols-3 gap-3 w-full max-w-sm mt-4">
-            <div className="bg-[#262a35]/80 border border-[#353944] p-3 rounded-lg text-center shadow-sm hover:border-[#8B5CF6]/50 transition-colors">
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              className="bg-[#262a35]/80 border border-[#353944] p-3 rounded-lg text-center shadow-sm hover:border-[#8B5CF6]/50 transition-colors"
+            >
               <p className="text-xl sm:text-2xl font-bold text-[#8B5CF6]">3.76</p>
               <p className="font-mono text-[11px] text-[#cbc3d7]">IPK S1 (STTC)</p>
-            </div>
-            <div className="bg-[#262a35]/80 border border-[#353944] p-3 rounded-lg text-center shadow-sm hover:border-[#06B6D4]/50 transition-colors">
+            </motion.div>
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              className="bg-[#262a35]/80 border border-[#353944] p-3 rounded-lg text-center shadow-sm hover:border-[#06B6D4]/50 transition-colors"
+            >
               <p className="text-xl sm:text-2xl font-bold text-[#06B6D4]">6+</p>
               <p className="font-mono text-[11px] text-[#cbc3d7]">Live Projects</p>
-            </div>
-            <div className="bg-[#262a35]/80 border border-[#353944] p-3 rounded-lg text-center shadow-sm hover:border-[#EC4899]/50 transition-colors">
+            </motion.div>
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              className="bg-[#262a35]/80 border border-[#353944] p-3 rounded-lg text-center shadow-sm hover:border-[#EC4899]/50 transition-colors"
+            >
               <p className="text-xl sm:text-2xl font-bold text-[#EC4899]">5+</p>
               <p className="font-mono text-[11px] text-[#cbc3d7]">Sertifikat Dicoding</p>
-            </div>
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Right: Detailed Storytelling Copy */}
-        <div className="lg:col-span-7 flex flex-col gap-5">
+        <motion.div
+          initial={{ opacity: 0, x: 40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          className="lg:col-span-7 flex flex-col gap-5"
+        >
           <div className="flex flex-col gap-1">
             <span className="font-mono text-xs uppercase tracking-widest text-[#d0bcff]">
               But who am I?
@@ -67,7 +89,10 @@ export const About: React.FC = () => {
           </div>
 
           {/* Callout Banner to Dicoding MSIB */}
-          <div className="bg-[#171b26] border border-[#262a35] rounded-xl p-4 sm:p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-inner mt-2">
+          <motion.div
+            whileHover={{ scale: 1.01 }}
+            className="bg-[#171b26] border border-[#262a35] hover:border-[#EC4899]/50 rounded-xl p-4 sm:p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-inner mt-2 transition-colors"
+          >
             <div className="flex items-center gap-3.5">
               <div className="w-11 h-11 rounded-lg bg-[#EC4899]/20 border border-[#EC4899]/30 flex items-center justify-center text-[#EC4899] flex-shrink-0">
                 <span className="material-symbols-outlined text-[26px]">workspace_premium</span>
@@ -88,14 +113,14 @@ export const About: React.FC = () => {
               <span>Lihat Detail</span>
               <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
             </a>
-          </div>
+          </motion.div>
 
           {/* Quick Actions */}
           <div className="flex flex-wrap items-center gap-3 pt-2">
             <a
               href={PERSONAL_INFO.cvUrl}
               download="CV_Ayi_Muhamad_Nasrulloh.pdf"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-gradient-to-r from-[#8B5CF6] to-[#EC4899] text-white text-xs sm:text-sm font-semibold shadow-md hover:shadow-lg transition-all"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-gradient-to-r from-[#8B5CF6] to-[#EC4899] text-white text-xs sm:text-sm font-semibold shadow-md hover:shadow-lg transition-all hover:-translate-y-0.5"
             >
               <span className="material-symbols-outlined text-[18px]">download</span>
               <span>Unduh Curriculum Vitae (PDF)</span>
@@ -104,15 +129,15 @@ export const About: React.FC = () => {
               href={PERSONAL_INFO.linkedin}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[#171b26] hover:bg-[#262a35] border border-[#262a35] text-[#dfe2f1] text-xs sm:text-sm font-medium transition-all"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[#171b26] hover:bg-[#262a35] border border-[#262a35] text-[#dfe2f1] text-xs sm:text-sm font-medium transition-all hover:-translate-y-0.5"
             >
               <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9h2.77v8.37H6.46v-8.37M7.84 6.88a1.62 1.62 0 1 0 0 3.24 1.62 1.62 0 0 0 0-3.24z" />
-                </svg>
+                <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9h2.77v8.37H6.46v-8.37M7.84 6.88a1.62 1.62 0 1 0 0 3.24 1.62 1.62 0 0 0 0-3.24z" />
+              </svg>
               <span>Profil LinkedIn</span>
             </a>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

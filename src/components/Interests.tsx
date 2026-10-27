@@ -1,4 +1,6 @@
 import React from 'react';
+import { motion } from 'motion/react';
+import { ScrollReveal } from './ScrollReveal';
 
 export const Interests: React.FC = () => {
   const cards = [
@@ -32,26 +34,31 @@ export const Interests: React.FC = () => {
   ];
 
   return (
-    <section className="w-full bg-[#0a0e18] py-24 border-y border-[#171b26]">
+    <section className="w-full bg-[#0a0e18] py-24 border-y border-[#171b26] relative overflow-hidden">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-12">
         {/* Section Header */}
-        <div className="flex flex-col items-center text-center gap-2">
+        <ScrollReveal direction="up" threshold={0.2} className="flex flex-col items-center text-center gap-2">
           <span className="font-mono text-xs uppercase tracking-widest text-[#d0bcff]">
             Interests
           </span>
           <h2 className="text-3xl sm:text-4xl font-bold text-[#dfe2f1]">Things I Love</h2>
           <div className="w-14 h-1 bg-gradient-to-r from-[#8B5CF6] to-[#EC4899] rounded-full mt-1"></div>
-        </div>
+        </ScrollReveal>
 
         {/* Feature Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {cards.map((card, index) => (
-            <div
+            <motion.div
               key={index}
-              className="bg-[#171b26] border border-[#262a35] hover:border-[#8B5CF6]/50 rounded-xl p-6 flex flex-col gap-4 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1.5 group"
+              initial={{ opacity: 0, y: 35 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.5, delay: index * 0.15, ease: 'easeOut' }}
+              whileHover={{ y: -6, transition: { duration: 0.2 } }}
+              className="bg-[#171b26] border border-[#262a35] hover:border-[#8B5CF6]/50 rounded-xl p-6 flex flex-col gap-4 shadow-lg hover:shadow-[0_10px_30px_rgba(139,92,246,0.15)] transition-colors group cursor-default"
             >
               <div
-                className={`w-14 h-14 rounded-xl ${card.iconBg} flex items-center justify-center ${card.iconColor} shadow-inner group-hover:scale-110 transition-transform`}
+                className={`w-14 h-14 rounded-xl ${card.iconBg} flex items-center justify-center ${card.iconColor} shadow-inner group-hover:scale-110 group-hover:rotate-3 transition-transform`}
               >
                 <span className="material-symbols-outlined text-[30px]">{card.icon}</span>
               </div>
@@ -68,7 +75,7 @@ export const Interests: React.FC = () => {
                   {card.tags}
                 </span>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

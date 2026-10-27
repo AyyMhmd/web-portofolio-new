@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { AnimatePresence } from 'motion/react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { Interests } from './components/Interests';
@@ -6,13 +7,17 @@ import { About } from './components/About';
 import { Skills } from './components/Skills';
 import { Projects } from './components/Projects';
 import { Experience } from './components/Experience';
-import { Testimonials } from './components/Testimonials';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
+import { InitialLoader } from './components/InitialLoader';
+import { ScrollProgress } from './components/ScrollProgress';
+import { ScrollToTop } from './components/ScrollToTop';
 
 export default function App() {
   const [activeSection, setActiveSection] = useState('home');
+  const [isLoading, setIsLoading] = useState(true);
 
+  // Active section tracking on scroll
   useEffect(() => {
     const handleScroll = () => {
       const sections = ['home', 'about', 'experience', 'skills', 'projects', 'contact'];
@@ -35,40 +40,63 @@ export default function App() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Allow ESC to skip intro immediately
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isLoading) {
+        setIsLoading(false);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isLoading]);
+
   return (
-    <div className="min-h-screen bg-[#0f131d] text-[#dfe2f1] font-sans selection:bg-[#8B5CF6] selection:text-white flex flex-col">
-      {/* Top Fixed Header */}
-      <Navbar activeSection={activeSection} />
+    <>
+      {/* Initial Access Entrance Preloader */}
+      <AnimatePresence mode="wait">
+        {isLoading && (
+          <InitialLoader onComplete={() => setIsLoading(false)} />
+        )}
+      </AnimatePresence>
 
-      {/* Main Content Sections */}
-      <main className="flex-1 w-full">
-        {/* Hero Section */}
-        <Hero />
+      <div className="min-h-screen bg-[#0f131d] text-[#dfe2f1] font-sans selection:bg-[#8B5CF6] selection:text-white flex flex-col relative">
+        {/* Scroll Progress Bar at the Top */}
+        <ScrollProgress />
 
-        {/* Things I Love (Interests) Section */}
-        <Interests />
+        {/* Top Fixed Header with entrance animation */}
+        <Navbar activeSection={activeSection} />
 
-        {/* About Me Section */}
-        <About />
+        {/* Main Content Sections */}
+        <main className="flex-1 w-full">
+          {/* Hero Section */}
+          <Hero />
 
-        {/* Pendidikan, Pengalaman & Sertifikasi Section */}
-        <Experience />
+          {/* Things I Love (Interests) Section */}
+          <Interests />
 
-        {/* Skills & Tech Stack Section */}
-        <Skills />
+          {/* About Me Section */}
+          <About />
 
-        {/* Featured Projects Section */}
-        <Projects />
+          {/* Pendidikan, Pengalaman & Sertifikasi Section */}
+          <Experience />
 
-        {/* Testimonials & Endorsements Section
-        <Testimonials /> */}
+          {/* Skills & Tech Stack Section */}
+          <Skills />
 
-        {/* Contact & Get In Touch Section
-        <Contact /> */}
-      </main>
+          {/* Featured Projects Section */}
+          <Projects />
 
-      {/* Footer */}
-      <Footer />
-    </div>
+          {/* Contact & Get In Touch Section */}
+          <Contact />
+        </main>
+
+        {/* Footer */}
+        <Footer />
+
+        {/* Floating Scroll To Top Button */}
+        <ScrollToTop />
+      </div>
+    </>
   );
 }

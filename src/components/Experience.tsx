@@ -1,12 +1,14 @@
 import React from 'react';
-import { EXPERIENCES, CERTIFICATIONS, PERSONAL_INFO } from '../data/portfolioData';
+import { motion } from 'motion/react';
+import { EXPERIENCES, CERTIFICATIONS } from '../data/portfolioData';
+import { ScrollReveal } from './ScrollReveal';
 
 export const Experience: React.FC = () => {
   return (
-    <section id="experience" className="w-full bg-[#0a0e18] py-24 border-y border-[#171b26]">
+    <section id="experience" className="w-full bg-[#0a0e18] py-24 border-y border-[#171b26] relative overflow-hidden">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-14">
         {/* Section Header */}
-        <div className="flex flex-col items-center text-center gap-2">
+        <ScrollReveal direction="up" threshold={0.2} className="flex flex-col items-center text-center gap-2">
           <span className="font-mono text-xs uppercase tracking-widest text-[#d0bcff]">
             Education &amp; Experience
           </span>
@@ -16,18 +18,25 @@ export const Experience: React.FC = () => {
           <p className="text-sm sm:text-base text-[#cbc3d7] max-w-lg">
             Rekam jejak akademis S1 Informatika, program magang industri MSIB Dicoding, dan lisensi kompetensi web terverifikasi:
           </p>
-        </div>
+        </ScrollReveal>
 
         {/* Education & Experience Timeline */}
         <div className="flex flex-col gap-6">
-          <div className="flex items-center gap-2">
+          <ScrollReveal direction="up" delay={0.1} className="flex items-center gap-2">
             <span className="material-symbols-outlined text-[#8B5CF6] text-[22px]">school</span>
             <h3 className="text-xl font-bold text-[#dfe2f1]">Pendidikan &amp; Pengalaman Kerja</h3>
-          </div>
+          </ScrollReveal>
 
           <div className="space-y-6">
             {/* Education Card */}
-            <div className="bg-[#171b26] border border-[#06B6D4]/40 shadow-[0_0_20px_rgba(6,182,212,0.12)] rounded-xl p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.15 }}
+              transition={{ duration: 0.5, ease: 'easeOut' }}
+              whileHover={{ y: -3, transition: { duration: 0.2 } }}
+              className="bg-[#171b26] border border-[#06B6D4]/40 shadow-[0_0_20px_rgba(6,182,212,0.12)] rounded-xl p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 transition-colors"
+            >
               <div className="flex items-start gap-3.5">
                 <div className="w-12 h-12 rounded-xl bg-[#06B6D4]/15 border border-[#06B6D4]/30 flex items-center justify-center text-[#06B6D4] flex-shrink-0">
                   <span className="material-symbols-outlined text-[28px]">school</span>
@@ -52,15 +61,20 @@ export const Experience: React.FC = () => {
               <div className="px-3.5 py-1.5 rounded-lg bg-[#262a35] border border-[#353944] text-xs font-mono text-[#d0bcff] self-end sm:self-center">
                 Akademik Unggul
               </div>
-            </div>
+            </motion.div>
 
             {/* Experience Cards */}
             {EXPERIENCES.map((exp, idx) => (
-              <div
+              <motion.div
                 key={idx}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.15 }}
+                transition={{ duration: 0.5, delay: idx * 0.15, ease: 'easeOut' }}
+                whileHover={{ y: -3, transition: { duration: 0.2 } }}
                 className={`bg-[#171b26] border ${
                   exp.featured ? 'border-[#8B5CF6]/40 shadow-[0_0_20px_rgba(139,92,246,0.15)]' : 'border-[#262a35]'
-                } rounded-xl p-6 flex flex-col gap-4 transition-all hover:border-[#8B5CF6]/60`}
+                } rounded-xl p-6 flex flex-col gap-4 transition-colors hover:border-[#8B5CF6]/60`}
               >
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#262a35] pb-3">
                   <div>
@@ -104,14 +118,14 @@ export const Experience: React.FC = () => {
                     </span>
                   ))}
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
 
         {/* Certifications Shelf */}
         <div className="flex flex-col gap-6 pt-4">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <ScrollReveal direction="up" className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
             <div className="flex items-center gap-2">
               <span className="material-symbols-outlined text-[#EC4899] text-[22px]">verified</span>
               <h3 className="text-xl font-bold text-[#dfe2f1]">
@@ -127,13 +141,18 @@ export const Experience: React.FC = () => {
               <span>Profil Dicoding (Seluruh Sertifikat)</span>
               <span className="material-symbols-outlined text-[14px]">open_in_new</span>
             </a>
-          </div>
+          </ScrollReveal>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {CERTIFICATIONS.map((cert, idx) => (
-              <div
+              <motion.div
                 key={idx}
-                className="bg-[#171b26] border border-[#262a35] hover:border-[#10B981]/50 p-5 rounded-xl flex flex-col justify-between gap-3 shadow-md hover:shadow-xl transition-all group"
+                initial={{ opacity: 0, y: 25 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.15 }}
+                transition={{ duration: 0.45, delay: (idx % 3) * 0.1, ease: 'easeOut' }}
+                whileHover={{ y: -4, transition: { duration: 0.2 } }}
+                className="bg-[#171b26] border border-[#262a35] hover:border-[#10B981]/50 p-5 rounded-xl flex flex-col justify-between gap-3 shadow-md hover:shadow-xl transition-colors group cursor-default"
               >
                 <div>
                   <div className="flex items-center justify-between mb-2">
@@ -161,7 +180,7 @@ export const Experience: React.FC = () => {
                     ))}
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>

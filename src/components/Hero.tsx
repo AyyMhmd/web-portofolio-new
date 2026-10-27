@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion } from 'motion/react';
 import { PERSONAL_INFO } from '../data/portfolioData';
 
 export const Hero: React.FC = () => {
@@ -31,9 +32,23 @@ export default developer;`;
 
   return (
     <section id="home" className="relative w-full pt-28 lg:pt-36 pb-20 overflow-hidden">
-      {/* Dynamic Ambient Glow Backdrops from reference */}
-      <div className="absolute top-10 left-1/4 w-80 sm:w-96 h-80 sm:h-96 bg-[#8B5CF6]/15 rounded-full blur-3xl pointer-events-none -z-10 animate-pulse"></div>
-      <div className="absolute top-64 right-10 w-80 sm:w-[30rem] h-80 sm:h-[30rem] bg-[#EC4899]/15 rounded-full blur-3xl pointer-events-none -z-10"></div>
+      {/* Dynamic Ambient Glow Backdrops */}
+      <motion.div
+        animate={{
+          scale: [1, 1.15, 1],
+          opacity: [0.15, 0.25, 0.15],
+        }}
+        transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+        className="absolute top-10 left-1/4 w-80 sm:w-96 h-80 sm:h-96 bg-[#8B5CF6]/20 rounded-full blur-3xl pointer-events-none -z-10"
+      />
+      <motion.div
+        animate={{
+          scale: [1.1, 1, 1.1],
+          opacity: [0.15, 0.25, 0.15],
+        }}
+        transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
+        className="absolute top-64 right-10 w-80 sm:w-[30rem] h-80 sm:h-[30rem] bg-[#EC4899]/20 rounded-full blur-3xl pointer-events-none -z-10"
+      />
       <div className="absolute top-[800px] left-10 w-80 h-80 bg-[#06B6D4]/15 rounded-full blur-3xl pointer-events-none -z-10"></div>
 
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
@@ -41,7 +56,12 @@ export default developer;`;
           {/* Left Narrative / Header Info */}
           <div className="lg:col-span-7 flex flex-col items-start gap-5">
             {/* Status & Badge Ribbon */}
-            <div className="flex flex-wrap items-center gap-2.5">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="flex flex-wrap items-center gap-2.5"
+            >
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#262a35] border border-[#313540] shadow-inner">
                 <span className="font-mono text-xs font-semibold text-[#d0bcff] uppercase tracking-wider">
                   Halo, Saya
@@ -53,10 +73,15 @@ export default developer;`;
                   Frontend Web Developer
                 </span>
               </div>
-            </div>
+            </motion.div>
 
             {/* Hero Headline */}
-            <div className="flex flex-col">
+            <motion.div
+              initial={{ opacity: 0, y: 25 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="flex flex-col"
+            >
               <h1 className="text-3xl sm:text-5xl lg:text-[54px] font-bold tracking-tight text-[#dfe2f1] leading-[1.15]">
                 Ayi <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#8B5CF6] via-[#a078ff] to-[#EC4899]">Muhamad</span>
               </h1>
@@ -65,15 +90,25 @@ export default developer;`;
                 Crafting interactive web real estate with passion
                 <span className="text-[#EC4899] font-semibold">&lt;/code&gt;</span>
               </p>
-            </div>
+            </motion.div>
 
             {/* Description Paragraph based on CV */}
-            <p className="text-base sm:text-lg text-[#cbc3d7] max-w-xl leading-relaxed">
+            <motion.p
+              initial={{ opacity: 0, y: 25 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="text-base sm:text-lg text-[#cbc3d7] max-w-xl leading-relaxed"
+            >
               Lulusan S1 Informatika Sekolah Tinggi Teknologi Cipasung dengan IPK <span className="text-white font-semibold underline decoration-[#8B5CF6] decoration-2 underline-offset-4">3.76</span> dan Alumni Web Developer Intern di <span className="text-white font-semibold">Dicoding Indonesia</span> (MSIB). Berpengalaman membangun antarmuka web interaktif, cepat, rapi, dan responsif dengan React, modern JavaScript, serta integrasi RESTful API.
-            </p>
+            </motion.p>
 
             {/* CTA Action Buttons */}
-            <div className="flex flex-wrap items-center gap-3 pt-2">
+            <motion.div
+              initial={{ opacity: 0, y: 25 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="flex flex-wrap items-center gap-3 pt-2"
+            >
               <a
                 href="#contact"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-gradient-to-r from-[#8B5CF6] to-[#EC4899] text-white text-sm sm:text-base font-semibold tracking-wide shadow-[0_0_24px_rgba(139,92,246,0.35)] hover:shadow-[0_0_32px_rgba(236,72,153,0.5)] transition-all transform hover:-translate-y-0.5 active:translate-y-0"
@@ -84,7 +119,7 @@ export default developer;`;
 
               <a
                 href="#projects"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-[#262a35] hover:bg-[#313540] border border-[#353944] text-[#dfe2f1] text-sm sm:text-base font-medium transition-all shadow-sm hover:shadow-md"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-[#262a35] hover:bg-[#313540] border border-[#353944] text-[#dfe2f1] text-sm sm:text-base font-medium transition-all shadow-sm hover:shadow-md hover:-translate-y-0.5"
               >
                 <span>View Portfolio</span>
                 <span className="material-symbols-outlined text-[18px] text-[#d0bcff]">arrow_forward</span>
@@ -93,16 +128,21 @@ export default developer;`;
               <a
                 href={PERSONAL_INFO.cvUrl}
                 download="CV_Ayi_Muhamad_Nasrulloh.pdf"
-                className="inline-flex items-center gap-2 px-4 py-3 rounded-lg bg-[#171b26] hover:bg-[#262a35] border border-[#262a35] text-[#d0bcff] text-sm font-medium transition-all"
-                title="Download Curiculum Vitae PDF"
+                className="inline-flex items-center gap-2 px-4 py-3 rounded-lg bg-[#171b26] hover:bg-[#262a35] border border-[#262a35] text-[#d0bcff] text-sm font-medium transition-all hover:-translate-y-0.5"
+                title="Download Curriculum Vitae PDF"
               >
                 <span className="material-symbols-outlined text-[18px]">description</span>
                 <span>Download CV</span>
               </a>
-            </div>
+            </motion.div>
 
             {/* Social Badges Row */}
-            <div className="flex flex-wrap items-center gap-2.5 pt-2">
+            <motion.div
+              initial={{ opacity: 0, y: 25 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              className="flex flex-wrap items-center gap-2.5 pt-2"
+            >
               <span className="font-mono text-xs text-[#958ea0] uppercase mr-1 tracking-wider">Signals:</span>
               
               {/* GitHub */}
@@ -159,12 +199,17 @@ export default developer;`;
                   <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.58c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.03-1.25-.75-.67-1.26-1.5-1.41-1.75-.15-.25-.02-.39.11-.51.11-.11.25-.29.37-.44.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.77 2.71 4.3 3.79.6.26 1.07.41 1.44.53.61.19 1.16.17 1.6.1.49-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.06-.1-.23-.17-.48-.29z" />
                 </svg>
               </a>
-            </div>
+            </motion.div>
           </div>
 
           {/* Right Code Terminal Mockup Card */}
-          <div className="lg:col-span-5 flex justify-center">
-            <div className="w-full max-w-lg bg-[#171b26]/95 border border-[#262a35] rounded-xl shadow-2xl p-5 relative overflow-hidden backdrop-blur-md">
+          <motion.div
+            initial={{ opacity: 0, x: 40, scale: 0.95 }}
+            animate={{ opacity: 1, x: 0, scale: 1 }}
+            transition={{ duration: 0.7, delay: 0.35, ease: 'easeOut' }}
+            className="lg:col-span-5 flex justify-center"
+          >
+            <div className="w-full max-w-lg bg-[#171b26]/95 border border-[#262a35] hover:border-[#8B5CF6]/50 transition-colors rounded-xl shadow-2xl p-5 relative overflow-hidden backdrop-blur-md">
               {/* Terminal Titlebar */}
               <div className="flex items-center justify-between pb-4 mb-4 border-b border-[#262a35]">
                 <div className="flex items-center gap-2">
@@ -178,7 +223,7 @@ export default developer;`;
                     onClick={handleCopyCode}
                     type="button"
                     title="Copy code"
-                    className="p-1 rounded bg-[#1c1f2a] hover:bg-[#262a35] text-[#958ea0] hover:text-white transition-colors text-xs font-mono flex items-center gap-1"
+                    className="p-1 rounded bg-[#1c1f2a] hover:bg-[#262a35] text-[#958ea0] hover:text-white transition-colors text-xs font-mono flex items-center gap-1 cursor-pointer"
                   >
                     <span className="material-symbols-outlined text-[14px]">
                       {copiedCode ? 'check' : 'content_copy'}
@@ -223,7 +268,7 @@ export default developer;`;
                 <span className="font-mono text-xs font-semibold text-[#10B981]">100% Responsive</span>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
