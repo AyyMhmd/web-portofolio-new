@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&amp;family=Rubik:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "outline": "#958ea0",
+          "on-primary-fixed": "#23005c",
+          "border-glow": "rgba(139, 92, 246, 0.4)",
+          "surface-bright": "#353944",
+          "surface-tint": "#d0bcff",
+          "secondary-fixed": "#ffd9e4",
+          "on-secondary-fixed": "#3e0022",
+          "on-tertiary-fixed": "#001a42",
+          "on-secondary-fixed-variant": "#8c0053",
+          "outline-variant": "#494454",
+          "surface-container-lowest": "#0a0e18",
+          "primary-fixed-dim": "#d0bcff",
+          "neon-violet": "#8B5CF6",
+          "on-surface-variant": "#cbc3d7",
+          "surface-variant": "#313540",
+          "terminal-emerald": "#10B981",
+          "terminal-cyan": "#06B6D4",
+          "surface-container-high": "#262a35",
+          "on-secondary-container": "#ffbad3",
+          "inverse-primary": "#6d3bd7",
+          "inverse-on-surface": "#2c303b",
+          "on-surface": "#dfe2f1",
+          "primary-fixed": "#e9ddff",
+          "on-error": "#690005",
+          "tertiary-fixed": "#d8e2ff",
+          "secondary": "#ffb0cd",
+          "on-background": "#dfe2f1",
+          "on-tertiary-fixed-variant": "#004395",
+          "primary": "#d0bcff",
+          "on-primary": "#3c0091",
+          "tertiary-container": "#4d8eff",
+          "surface-overlay": "rgba(31, 41, 55, 0.6)",
+          "tertiary-fixed-dim": "#adc6ff",
+          "on-tertiary": "#002e6a",
+          "border-subtle": "rgba(255, 255, 255, 0.08)",
+          "surface-container": "#1c1f2a",
+          "on-error-container": "#ffdad6",
+          "surface-elevated": "#111827",
+          "surface-dim": "#0f131d",
+          "tertiary": "#adc6ff",
+          "on-primary-container": "#340080",
+          "surface-base": "#0B0F19",
+          "background": "#0f131d",
+          "primary-container": "#a078ff",
+          "neon-magenta": "#EC4899",
+          "secondary-fixed-dim": "#ffb0cd",
+          "on-tertiary-container": "#00285d",
+          "error-container": "#93000a",
+          "on-primary-fixed-variant": "#5516be",
+          "surface-container-highest": "#313540",
+          "surface": "#0f131d",
+          "inverse-surface": "#dfe2f1",
+          "surface-container-low": "#171b26",
+          "error": "#ffb4ab",
+          "on-secondary": "#640039",
+          "secondary-container": "#aa0266",
+          "surface-card": "rgba(17, 24, 39, 0.75)"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.25rem",
+          "lg": "0.5rem",
+          "xl": "0.75rem",
+          "full": "9999px"
+        },
+        "spacing": {
+          "space-md": "1rem",
+          "space-sm": "0.5rem",
+          "space-xs": "0.25rem",
+          "gutter": "1.5rem",
+          "space-3xl": "6rem",
+          "space-lg": "1.5rem",
+          "margin-mobile": "1rem",
+          "margin": "2rem",
+          "space-xl": "2.5rem",
+          "space-2xl": "4rem",
+          "gutter-mobile": "1rem"
+        },
+        "fontFamily": {
+          "headline-xl-mobile": [
+            "Rubik"
+          ],
+          "headline-md": [
+            "Rubik"
+          ],
+          "label-badge": [
+            "JetBrains Mono"
+          ],
+          "label-code": [
+            "JetBrains Mono"
+          ],
+          "body-sm": [
+            "Rubik"
+          ],
+          "body-md": [
+            "Rubik"
+          ],
+          "headline-sm": [
+            "Rubik"
+          ],
+          "headline-lg": [
+            "Rubik"
+          ],
+          "headline-xl": [
+            "Rubik"
+          ],
+          "body-lg": [
+            "Rubik"
+          ],
+          "headline-lg-mobile": [
+            "Rubik"
+          ]
+        },
+        "fontSize": {
+          "headline-xl-mobile": [
+            "32px",
+            {
+              "lineHeight": "40px",
+              "letterSpacing": "-0.01em",
+              "fontWeight": "700"
+            }
+          ],
+          "headline-md": [
+            "24px",
+            {
+              "lineHeight": "32px",
+              "letterSpacing": "-0.01em",
+              "fontWeight": "600"
+            }
+          ],
+          "label-badge": [
+            "11px",
+            {
+              "lineHeight": "16px",
+              "letterSpacing": "0.06em",
+              "fontWeight": "600"
+            }
+          ],
+          "label-code": [
+            "13px",
+            {
+              "lineHeight": "18px",
+              "letterSpacing": "0.02em",
+              "fontWeight": "500"
+            }
+          ],
+          "body-sm": [
+            "13px",
+            {
+              "lineHeight": "20px",
+              "fontWeight": "400"
+            }
+          ],
+          "body-md": [
+            "15px",
+            {
+              "lineHeight": "24px",
+              "fontWeight": "400"
+            }
+          ],
+          "headline-sm": [
+            "20px",
+            {
+              "lineHeight": "28px",
+              "fontWeight": "500"
+            }
+          ],
+          "headline-lg": [
+            "36px",
+            {
+              "lineHeight": "44px",
+              "letterSpacing": "-0.015em",
+              "fontWeight": "600"
+            }
+          ],
+          "headline-xl": [
+            "48px",
+            {
+              "lineHeight": "56px",
+              "letterSpacing": "-0.02em",
+              "fontWeight": "700"
+            }
+          ],
+          "body-lg": [
+            "18px",
+            {
+              "lineHeight": "28px",
+              "fontWeight": "400"
+            }
+          ],
+          "headline-lg-mobile": [
+            "26px",
+            {
+              "lineHeight": "34px",
+              "letterSpacing": "-0.01em",
+              "fontWeight": "600"
+            }
+          ]
+        }
+      },
+    },
+  }</script></head><body class="bg-surface text-on-surface font-body-md text-body-md antialiased selection:bg-neon-violet selection:text-white"><header class="fixed top-0 left-0 right-0 z-50 bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-20 max-w-[1200px] mx-auto px-margin-mobile lg:px-margin flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md"><a class="group flex items-center gap-space-xs font-label-code text-label-code text-primary tracking-tight transition-transform hover:scale-105" data-path="home" href="#"><span class="text-neon-violet font-bold">&lt;</span><span class="font-headline-sm text-headline-sm font-semibold text-on-surface tracking-normal group-hover:text-primary transition-colors">Vijay Singh</span><span class="text-neon-magenta font-bold">/&gt;</span></a><div class="hidden xl:flex items-center gap-space-xs bg-surface-container-low px-space-sm py-1 rounded-full"><span class="w-2 h-2 rounded-full bg-terminal-emerald animate-pulse"></span><span class="font-label-badge text-label-badge text-terminal-emerald uppercase tracking-wider">Available for hire</span></div></div><nav class="hidden lg:flex items-center gap-space-xs p-1" data-active-classes="bg-primary-container text-on-primary-container font-semibold rounded-lg"><a aria-current="page" class="px-3 py-2 transition-colors bg-primary-container text-on-primary-container font-semibold rounded-lg" data-path="home" href="#">Home</a><a class="px-3 py-2 font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors rounded-lg" data-path="about" href="#">About</a><a class="px-3 py-2 font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors rounded-lg" data-path="skills" href="#">Skills</a><a class="px-3 py-2 font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors rounded-lg" data-path="projects" href="#">Projects</a><a class="px-3 py-2 font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors rounded-lg" data-path="blogs" href="#">Blogs</a><a class="px-3 py-2 font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors rounded-lg" data-path="contact" href="#">Contact</a></nav><div class="flex items-center gap-space-sm"><div class="hidden sm:flex items-center gap-1 bg-surface-container-low p-1 rounded-lg"><a aria-label="Code Repositories" class="w-9 h-9 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" href="#"><span class="material-symbols-outlined text-[18px]">code</span></a><a aria-label="Network Feeds" class="w-9 h-9 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" href="#"><span class="material-symbols-outlined text-[18px]">share</span></a><a aria-label="Professional Hub" class="w-9 h-9 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" href="#"><span class="material-symbols-outlined text-[18px]">hub</span></a></div><a class="hidden sm:inline-flex items-center justify-center px-4 py-2 rounded-lg bg-gradient-to-r from-neon-violet to-neon-magenta text-white font-body-sm text-body-sm font-semibold tracking-wide shadow-[0_0_20px_rgba(139,92,246,0.3)] hover:shadow-[0_0_24px_rgba(139,92,246,0.5)] transition-all transform hover:-translate-y-0.5" data-path="contact" href="#">Hire Me</a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center flex-shrink-0 shadow-sm"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-20 bg-surface min-h-[calc(100vh-80px)]"><div class="flex flex-col w-full relative overflow-hidden">
+<!-- Dynamic Ambient Glow Backdrops -->
+<div class="absolute top-10 left-1/4 w-96 h-96 bg-neon-violet/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
+<div class="absolute top-80 right-10 w-[30rem] h-[30rem] bg-neon-magenta/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
+<div class="absolute top-[1600px] left-10 w-96 h-96 bg-terminal-cyan/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
+<!-- HERO SECTION -->
+<section class="max-w-[1200px] mx-auto w-full px-margin-mobile lg:px-margin pt-space-lg lg:pt-space-2xl pb-space-3xl">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
+<!-- Left Narrative / Header info -->
+<div class="lg:col-span-7 flex flex-col items-start gap-space-md">
+<!-- Status & Badge Ribbon -->
+<div class="flex flex-wrap items-center gap-space-sm">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-high shadow-inner">
+<span class="font-label-code text-label-badge text-primary uppercase tracking-wider">Namasté, I'm</span>
+</div>
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-low shadow-sm">
+<span class="w-2 h-2 rounded-full bg-terminal-cyan animate-ping"></span>
+<span class="font-label-badge text-label-badge text-terminal-cyan uppercase tracking-wider">Frontend Developer</span>
+</div>
+</div>
+<!-- Hero Headline -->
+<div class="flex flex-col">
+<h1 class="font-headline-xl text-headline-xl tracking-tight text-on-surface">
+            Vijay <span class="text-transparent bg-clip-text bg-gradient-to-r from-neon-violet via-primary-container to-neon-magenta">Singh</span>
+</h1>
+<p class="font-label-code text-label-code text-primary mt-1 flex items-center gap-2">
+<span class="text-neon-violet">&lt;code&gt;</span> Crafting interactive web real estate with passion <span class="text-neon-magenta">&lt;/code&gt;</span>
+</p>
+</div>
+<!-- Description Paragraph -->
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+          Started unintentionally with messy Discord bot templates in 2021. Now, creating beautiful and responsive websites and templates for everyone to explore! But this time <span class="text-on-surface font-semibold underline decoration-neon-violet decoration-2 underline-offset-4">intentionally</span>.
+        </p>
+<!-- CTA Action Buttons -->
+<div class="flex flex-wrap items-center gap-space-md pt-2">
+<a class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-gradient-to-r from-neon-violet to-neon-magenta text-white font-headline-sm text-body-md font-semibold tracking-wide shadow-[0_0_24px_rgba(139,92,246,0.35)] hover:shadow-[0_0_32px_rgba(236,72,153,0.5)] transition-all transform hover:-translate-y-0.5" href="#contact">
+<span class="material-symbols-outlined text-[20px]">chat</span>
+<span>Contact Me</span>
+</a>
+<a class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-surface-container-high hover:bg-surface-variant text-on-surface font-headline-sm text-body-md font-medium transition-all shadow-sm hover:shadow-md" href="#projects">
+<span>View Portfolio</span>
+<span class="material-symbols-outlined text-[18px] text-primary">arrow_forward</span>
+</a>
+</div>
+<!-- Social Badges Row -->
+<div class="flex flex-wrap items-center gap-2 pt-2">
+<span class="font-label-code text-label-badge text-outline uppercase mr-2 tracking-wider">Signals:</span>
+<a aria-label="GitHub" class="p-2.5 rounded-lg bg-surface-container hover:bg-surface-bright text-on-surface-variant hover:text-on-surface transition-all shadow-sm" href="https://github.com/itsvijaysingh/" rel="noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[20px]">terminal</span>
+</a>
+<a aria-label="Twitter" class="p-2.5 rounded-lg bg-surface-container hover:bg-surface-bright text-on-surface-variant hover:text-neon-cyan transition-all shadow-sm" href="https://twitter.com/_itsvj/" rel="noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[20px]">alternate_email</span>
+</a>
+<a aria-label="Instagram" class="p-2.5 rounded-lg bg-surface-container hover:bg-surface-bright text-on-surface-variant hover:text-neon-magenta transition-all shadow-sm" href="https://www.instagram.com/__itsvj/" rel="noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[20px]">photo_camera</span>
+</a>
+<a aria-label="YouTube" class="p-2.5 rounded-lg bg-surface-container hover:bg-surface-bright text-on-surface-variant hover:text-error transition-all shadow-sm" href="https://www.youtube.com/@VIJAYGAMINGFF/" rel="noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[20px]">play_circle</span>
+</a>
+<a aria-label="LinkedIn" class="p-2.5 rounded-lg bg-surface-container hover:bg-surface-bright text-on-surface-variant hover:text-primary transition-all shadow-sm" href="https://www.linkedin.com/itsvijaysingh/" rel="noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[20px]">hub</span>
+</a>
+<a aria-label="Discord" class="p-2.5 rounded-lg bg-surface-container hover:bg-surface-bright text-on-surface-variant hover:text-neon-violet transition-all shadow-sm" href="https://discord.gg/pU4ukuWNBw" rel="noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[20px]">forum</span>
+</a>
+</div>
+</div>
+<!-- Right Code Terminal Mockup Card -->
+<div class="lg:col-span-5 flex justify-center">
+<div class="w-full max-w-md bg-surface-container-low rounded-xl shadow-2xl p-5 relative overflow-hidden backdrop-blur-md">
+<!-- Terminal Titlebar -->
+<div class="flex items-center justify-between pb-4 mb-4 bg-surface-container-low">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-error"></span>
+<span class="w-3 h-3 rounded-full bg-secondary-container"></span>
+<span class="w-3 h-3 rounded-full bg-terminal-emerald"></span>
+<span class="ml-2 font-label-code text-label-badge text-outline">developer_config.ts</span>
+</div>
+<span class="font-label-badge text-label-badge text-terminal-emerald bg-surface-container px-2 py-0.5 rounded">active</span>
+</div>
+<!-- Code Body -->
+<pre class="font-label-code text-label-code text-on-surface leading-relaxed overflow-x-auto space-y-1"><code><span class="text-neon-magenta">const</span> developer = {
+  <span class="text-primary">name</span>: <span class="text-terminal-emerald">'Vijay Singh'</span>,
+  <span class="text-primary">role</span>: <span class="text-terminal-emerald">'Frontend Engineer'</span>,
+  <span class="text-primary">focus</span>: [<span class="text-terminal-cyan">'UI/UX'</span>, <span class="text-terminal-cyan">'Clean Code'</span>],
+  <span class="text-primary">journey</span>: {
+    <span class="text-outline">start</span>: <span class="text-secondary">2021</span>,
+    <span class="text-outline">origin</span>: <span class="text-terminal-emerald">'Discord Bots'</span>,
+    <span class="text-outline">evolution</span>: <span class="text-terminal-emerald">'Fullstack Web'</span>
+  },
+  <span class="text-primary">availableForHire</span>: <span class="text-neon-violet">true</span>,
+  <span class="text-primary">fuel</span>: <span class="text-terminal-emerald">'☕ Passion &amp; Code'</span>
+};
+
+<span class="text-outline">// System ready to deploy</span>
+<span class="text-neon-violet">export default</span> developer;</code>
+          </pre>
+<!-- Micro Analytics Badge -->
+<div class="mt-4 pt-3 flex items-center justify-between bg-surface-container-high rounded-lg px-3 py-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-neon-violet text-[18px]">verified</span>
+<span class="font-label-badge text-label-badge text-on-surface-variant">Production-Ready Build</span>
+</div>
+<span class="font-label-badge text-label-badge text-terminal-emerald">100% Responsive</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- THINGS I LOVE / INTERESTS SECTION -->
+<section class="w-full bg-surface-container-lowest py-space-3xl">
+<div class="max-w-[1200px] mx-auto px-margin-mobile lg:px-margin flex flex-col gap-space-2xl">
+<!-- Section Header -->
+<div class="flex flex-col items-center text-center gap-2">
+<span class="font-label-code text-label-badge uppercase tracking-widest text-primary">Interests</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Things I Love</h2>
+<div class="w-12 h-1 bg-gradient-to-r from-neon-violet to-neon-magenta rounded-full mt-1"></div>
+</div>
+<!-- Feature Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-lg">
+<!-- Card 1: Designing -->
+<div class="bg-surface-container-low rounded-xl p-space-lg flex flex-col gap-space-md shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1">
+<div class="w-14 h-14 rounded-xl bg-neon-violet/15 flex items-center justify-center text-neon-violet shadow-inner">
+<span class="material-symbols-outlined text-[30px]">palette</span>
+</div>
+<div class="flex flex-col gap-2">
+<h3 class="font-headline-md text-headline-md text-on-surface">Designing</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              I love designing. When I see something that needs improvement, I enjoy making it better visually. I pay attention to every detail, whether it's a graphic or a user interface. My goal is to create designs that catch the eye and inspire others.
+            </p>
+</div>
+<div class="mt-auto pt-2 flex items-center gap-2">
+<span class="font-label-badge text-label-badge text-primary uppercase">Figma • UI/UX • Aesthetics</span>
+</div>
+</div>
+<!-- Card 2: Developing -->
+<div class="bg-surface-container-low rounded-xl p-space-lg flex flex-col gap-space-md shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1">
+<div class="w-14 h-14 rounded-xl bg-terminal-cyan/15 flex items-center justify-center text-terminal-cyan shadow-inner">
+<span class="material-symbols-outlined text-[30px]">code</span>
+</div>
+<div class="flex flex-col gap-2">
+<h3 class="font-headline-md text-headline-md text-on-surface">Developing</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              After designing, I dive into development. Coding is where I bring designs to life, turning concepts into digital experiences. Each line of code reflects my vision for functionality and elegance, showcasing my commitment to excellence.
+            </p>
+</div>
+<div class="mt-auto pt-2 flex items-center gap-2">
+<span class="font-label-badge text-label-badge text-terminal-cyan uppercase">JavaScript • Node • Architecture</span>
+</div>
+</div>
+<!-- Card 3: Expanding -->
+<div class="bg-surface-container-low rounded-xl p-space-lg flex flex-col gap-space-md shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1">
+<div class="w-14 h-14 rounded-xl bg-neon-magenta/15 flex items-center justify-center text-neon-magenta shadow-inner">
+<span class="material-symbols-outlined text-[30px]">rocket_launch</span>
+</div>
+<div class="flex flex-col gap-2">
+<h3 class="font-headline-md text-headline-md text-on-surface">Expanding</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              Expanding beyond creation, I optimize. From templates to full websites, I refine post-development. Leveraging blogging and basic SEO, I enhance visibility and impact online. Each step maximizes reach and effectiveness online.
+            </p>
+</div>
+<div class="mt-auto pt-2 flex items-center gap-2">
+<span class="font-label-badge text-label-badge text-neon-magenta uppercase">SEO • Blogging • Reach</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ABOUT ME SECTION -->
+<section class="w-full py-space-3xl max-w-[1200px] mx-auto px-margin-mobile lg:px-margin" id="about">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
+<!-- Left: Visual & Profile Representation -->
+<div class="lg:col-span-5 flex flex-col items-center">
+<div class="relative w-full max-w-sm rounded-2xl overflow-hidden bg-surface-container-low p-2 shadow-2xl">
+<div class="relative w-full aspect-[4/5] rounded-xl overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A portrait of Vijay Singh, a young 20-year-old passionate Indian frontend developer and blogger, wearing a modern stylish denim jacket in a contemporary studio with subtle violet and cyan atmospheric studio rim lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLdOBofummEEVDZtFXNGQwv5ib91ur4uxfh_9C90dqKxqSx2sT5jqUWpF9is7bU4fWmBc5E70yEMc96g8iPs5sMBFalkQNq61J6E6JpOUAOsYGpDnPy5EfaL4tt95DR1j0OsbatkrLXLnqJhGFhC02xEJ7Qt_PweSd_gYieGgWJe56FKrrQ_Vt4sDTTWLPcCkZv_tEksDVKe3d8o5KP3vnoY9Q8j_WIJSMHKZN-u5YVJH0ND_1qAnu"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent opacity-80"></div>
+<div class="absolute bottom-4 left-4 right-4 p-3 bg-surface-container-high/90 backdrop-blur-md rounded-lg flex items-center justify-between">
+<div>
+<p class="font-headline-sm text-body-md text-on-surface font-semibold">Vijay Singh</p>
+<p class="font-label-badge text-label-badge text-primary">MCA Candidate &amp; Dev</p>
+</div>
+<span class="material-symbols-outlined text-terminal-emerald text-[22px]">verified</span>
+</div>
+</div>
+</div>
+<!-- Floating Stat Pills -->
+<div class="grid grid-cols-3 gap-2 w-full max-w-sm mt-4">
+<div class="bg-surface-container-high p-3 rounded-lg text-center shadow-sm">
+<p class="font-headline-md text-headline-md text-neon-violet font-bold">3+</p>
+<p class="font-label-badge text-label-badge text-on-surface-variant">Years Crafting</p>
+</div>
+<div class="bg-surface-container-high p-3 rounded-lg text-center shadow-sm">
+<p class="font-headline-md text-headline-md text-primary font-bold">10+</p>
+<p class="font-label-badge text-label-badge text-on-surface-variant">Live Projects</p>
+</div>
+<div class="bg-surface-container-high p-3 rounded-lg text-center shadow-sm">
+<p class="font-headline-md text-headline-md text-neon-magenta font-bold">100k+</p>
+<p class="font-label-badge text-label-badge text-on-surface-variant">Blog Views</p>
+</div>
+</div>
+</div>
+<!-- Right: Detailed Storytelling Copy -->
+<div class="lg:col-span-7 flex flex-col gap-space-md">
+<div class="flex flex-col gap-1">
+<span class="font-label-code text-label-badge uppercase tracking-widest text-primary">But who am I?</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">About Me</h2>
+<p class="font-body-md text-body-md text-on-surface-variant italic">My story in a nutshell ;)</p>
+</div>
+<div class="space-y-4 font-body-md text-body-md text-on-surface-variant leading-relaxed">
+<p>
+            Hey there, I'm Vijay, a 20-year-old coding enthusiast from India. I'm currently doing part-time blogging with my full-time journey as a frontend web developer. My coding journey began with experimenting on Discord bots. Now, I'm pursuing a master's degree in computer applications (MCA) to deepen my skills and passion for web development.
+          </p>
+<p>
+            My main goal in coding is simple: to create things that look great and serve a purpose. Whether it's designing sleek designs or expanding web applications, I'm always exploring new ideas to make something awesome.
+          </p>
+<p>
+            Apart from coding, when I'm not coding or catching up on news, you can often find me immersed in the world of battle royale games. And yeah, I also write about my adventures in tech and gaming.
+          </p>
+</div>
+<!-- Callout Banner to GamesRoid -->
+<div class="bg-surface-container-low rounded-xl p-space-md flex items-center justify-between gap-space-md shadow-inner mt-2">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-neon-magenta/20 flex items-center justify-center text-neon-magenta">
+<span class="material-symbols-outlined text-[24px]">sports_esports</span>
+</div>
+<div>
+<p class="font-headline-sm text-body-md font-semibold text-on-surface">Author at GamesRoid</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Covering mobile titles, game updates &amp; community tips.</p>
+</div>
+</div>
+<a class="px-4 py-2 rounded-lg bg-surface-container-high hover:bg-surface-bright text-on-surface font-body-sm text-body-sm transition-all flex items-center gap-1 shadow-sm" href="https://gamesroid.com/" rel="noreferrer" target="_blank">
+<span>Explore</span>
+<span class="material-symbols-outlined text-[16px]">open_in_new</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- SKILLS & TOOLS SECTION -->
+<section class="w-full bg-surface-container-lowest py-space-3xl" id="skills">
+<div class="max-w-[1200px] mx-auto px-margin-mobile lg:px-margin flex flex-col gap-space-2xl">
+<!-- Section Titles -->
+<div class="flex flex-col items-center text-center gap-2">
+<span class="font-label-code text-label-badge uppercase tracking-widest text-primary">What do I know?</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Skills &amp; Tech Stack</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-lg">Here are some of the technologies that are part of my current arsenal:</p>
+</div>
+<!-- Category 1: Languages & Core Tech -->
+<div class="flex flex-col gap-space-md">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-neon-violet text-[20px]">layers</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Technologies &amp; Frameworks</h3>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-space-md">
+<!-- HTML -->
+<div class="bg-surface-container-low hover:bg-surface-container p-4 rounded-xl flex flex-col items-center justify-center gap-2 text-center transition-all shadow-md group">
+<span class="font-label-code text-headline-md font-bold text-secondary">HTML5</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant group-hover:text-on-surface">Semantic Markup</span>
+</div>
+<!-- CSS -->
+<div class="bg-surface-container-low hover:bg-surface-container p-4 rounded-xl flex flex-col items-center justify-center gap-2 text-center transition-all shadow-md group">
+<span class="font-label-code text-headline-md font-bold text-terminal-cyan">CSS3</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant group-hover:text-on-surface">Styling &amp; Flexbox</span>
+</div>
+<!-- JS -->
+<div class="bg-surface-container-low hover:bg-surface-container p-4 rounded-xl flex flex-col items-center justify-center gap-2 text-center transition-all shadow-md group">
+<span class="font-label-code text-headline-md font-bold text-primary">JavaScript</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant group-hover:text-on-surface">ES6+ &amp; DOM API</span>
+</div>
+<!-- NodeJS -->
+<div class="bg-surface-container-low hover:bg-surface-container p-4 rounded-xl flex flex-col items-center justify-center gap-2 text-center transition-all shadow-md group">
+<span class="font-label-code text-headline-md font-bold text-terminal-emerald">NodeJS</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant group-hover:text-on-surface">Backend Runtimes</span>
+</div>
+<!-- ExpressJS -->
+<div class="bg-surface-container-low hover:bg-surface-container p-4 rounded-xl flex flex-col items-center justify-center gap-2 text-center transition-all shadow-md group">
+<span class="font-label-code text-headline-md font-bold text-on-surface">ExpressJS</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant group-hover:text-on-surface">RESTful Routing</span>
+</div>
+<!-- EJS -->
+<div class="bg-surface-container-low hover:bg-surface-container p-4 rounded-xl flex flex-col items-center justify-center gap-2 text-center transition-all shadow-md group">
+<span class="font-label-code text-headline-md font-bold text-neon-magenta">EJS</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant group-hover:text-on-surface">Templating Engines</span>
+</div>
+<!-- Bootstrap -->
+<div class="bg-surface-container-low hover:bg-surface-container p-4 rounded-xl flex flex-col items-center justify-center gap-2 text-center transition-all shadow-md group">
+<span class="font-label-code text-headline-md font-bold text-neon-violet">Bootstrap</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant group-hover:text-on-surface">Responsive Grids</span>
+</div>
+<!-- C -->
+<div class="bg-surface-container-low hover:bg-surface-container p-4 rounded-xl flex flex-col items-center justify-center gap-2 text-center transition-all shadow-md group">
+<span class="font-label-code text-headline-md font-bold text-tertiary">C Lang</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant group-hover:text-on-surface">Data Structures</span>
+</div>
+<!-- Python -->
+<div class="bg-surface-container-low hover:bg-surface-container p-4 rounded-xl flex flex-col items-center justify-center gap-2 text-center transition-all shadow-md group">
+<span class="font-label-code text-headline-md font-bold text-primary-container">Python</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant group-hover:text-on-surface">Scripting &amp; Logic</span>
+</div>
+<!-- MongoDB -->
+<div class="bg-surface-container-low hover:bg-surface-container p-4 rounded-xl flex flex-col items-center justify-center gap-2 text-center transition-all shadow-md group">
+<span class="font-label-code text-headline-md font-bold text-terminal-emerald">MongoDB</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant group-hover:text-on-surface">NoSQL Schemas</span>
+</div>
+</div>
+</div>
+<!-- Category 2: Tools Vijay Runs -->
+<div class="flex flex-col gap-space-md pt-space-lg">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-neon-magenta text-[20px]">construction</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Workflow Tools I Run</h3>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-space-md">
+<div class="bg-surface-container-low p-4 rounded-xl flex flex-col items-center justify-center gap-2 shadow-sm text-center">
+<span class="material-symbols-outlined text-terminal-cyan text-[28px]">integration_instructions</span>
+<span class="font-headline-sm text-body-md font-semibold text-on-surface">VS Code</span>
+<span class="font-label-badge text-label-badge text-outline">Primary IDE</span>
+</div>
+<div class="bg-surface-container-low p-4 rounded-xl flex flex-col items-center justify-center gap-2 shadow-sm text-center">
+<span class="material-symbols-outlined text-on-surface text-[28px]">source_environment</span>
+<span class="font-headline-sm text-body-md font-semibold text-on-surface">GitHub</span>
+<span class="font-label-badge text-label-badge text-outline">VCS &amp; CI/CD</span>
+</div>
+<div class="bg-surface-container-low p-4 rounded-xl flex flex-col items-center justify-center gap-2 shadow-sm text-center">
+<span class="material-symbols-outlined text-neon-violet text-[28px]">brush</span>
+<span class="font-headline-sm text-body-md font-semibold text-on-surface">Figma</span>
+<span class="font-label-badge text-label-badge text-outline">Interface Wireframing</span>
+</div>
+<div class="bg-surface-container-low p-4 rounded-xl flex flex-col items-center justify-center gap-2 shadow-sm text-center">
+<span class="material-symbols-outlined text-terminal-cyan text-[28px]">draw</span>
+<span class="font-headline-sm text-body-md font-semibold text-on-surface">Canva</span>
+<span class="font-label-badge text-label-badge text-outline">Asset Design</span>
+</div>
+<div class="bg-surface-container-low p-4 rounded-xl flex flex-col items-center justify-center gap-2 shadow-sm text-center">
+<span class="material-symbols-outlined text-terminal-emerald text-[28px]">psychology</span>
+<span class="font-headline-sm text-body-md font-semibold text-on-surface">ChatGPT</span>
+<span class="font-label-badge text-label-badge text-outline">Prompt Workflow</span>
+</div>
+<div class="bg-surface-container-low p-4 rounded-xl flex flex-col items-center justify-center gap-2 shadow-sm text-center">
+<span class="material-symbols-outlined text-primary text-[28px]">smart_toy</span>
+<span class="font-headline-sm text-body-md font-semibold text-on-surface">Gemini</span>
+<span class="font-label-badge text-label-badge text-outline">Research &amp; Docs</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- PROJECTS SECTION -->
+<section class="w-full py-space-3xl max-w-[1200px] mx-auto px-margin-mobile lg:px-margin" id="projects">
+<div class="flex flex-col gap-space-2xl">
+<!-- Section Header -->
+<div class="flex flex-col items-center text-center gap-2">
+<span class="font-label-code text-label-badge uppercase tracking-widest text-primary">What I've done?</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Featured Projects</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-lg">A selection of hand-crafted web products, utilities, and high-conversion landing templates.</p>
+</div>
+<!-- Project Cards Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-lg">
+<!-- Project 1: PfpFinder -->
+<div class="bg-surface-container-low rounded-xl overflow-hidden shadow-xl flex flex-col group hover:shadow-2xl transition-all">
+<div class="relative w-full aspect-[16/10] bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Screenshot preview mockup of PfpFinder web application displaying a clean dark modern UI grid of social media avatars, profile banners, search filters, and neon purple accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRfGtN7Kv-K2bYb4FcYkBr3NgxxNMqoG2VKUFKUq0I7mgqZBbrOg0IEd24G91YUxA7q_o56u30ZfwK4mZD-44x-zlrlKcoshYFEyvDuRTULyRQ8u3wibBBJbQRXKZwHZoW-w__dpMP62mcLVLbdA3WVtCI8tu4Q_fzHWXy9tM0WnRFHO3Et1HUeSerHCaruKn8enTZ2xu9Z41FWbT76XKpk8GgJTUrH778RCB6P9zxnsLCjBkoI_Nf"/>
+<div class="absolute top-3 right-3">
+<span class="px-2.5 py-1 rounded-full bg-neon-violet/90 text-white font-label-badge text-label-badge uppercase font-semibold">Live App</span>
+</div>
+</div>
+<div class="p-space-lg flex flex-col flex-1 gap-space-md">
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold">PfpFinder</h3>
+<span class="font-label-code text-label-badge text-terminal-cyan">v1.2</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Find the best profile pictures and banners for all your social media accounts.</p>
+</div>
+<div class="flex flex-wrap gap-1.5 mt-auto pt-2">
+<span class="px-2 py-0.5 rounded bg-surface-container font-label-code text-label-badge text-primary">HTML</span>
+<span class="px-2 py-0.5 rounded bg-surface-container font-label-code text-label-badge text-primary">CSS</span>
+<span class="px-2 py-0.5 rounded bg-surface-container font-label-code text-label-badge text-primary">JS</span>
+<span class="px-2 py-0.5 rounded bg-surface-container font-label-code text-label-badge text-primary">NodeJS</span>
+</div>
+<div class="pt-2 flex items-center justify-between">
+<a class="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-primary-container text-on-primary-container font-body-sm text-body-sm font-semibold hover:bg-primary transition-all" href="https://pfpfinder.com/" rel="noreferrer" target="_blank">
+<span>Visit Website</span>
+<span class="material-symbols-outlined text-[16px]">arrow_outward</span>
+</a>
+<span class="font-label-badge text-label-badge text-terminal-emerald flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-terminal-emerald"></span> Verified
+              </span>
+</div>
+</div>
+</div>
+<!-- Project 2: BikeKart -->
+<div class="bg-surface-container-low rounded-xl overflow-hidden shadow-xl flex flex-col group hover:shadow-2xl transition-all">
+<div class="relative w-full aspect-[16/10] bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Screenshot preview mockup of BikeKart, a sleek modern dark sports bike dealership storefront website featuring motorcycle specs, showcase carousel, and vibrant orange-cyan highlights." src="https://lh3.googleusercontent.com/aida-public/AB6AXuATDC2vAL7mB7p70QYd14TAOS7e__bCRPwhOnuTHjXq_l5qZlwVID4gwNBcufu9-z3jRh-sqx3oH59XJ72Qq0eL8hb3bpKuEw3_GQDYw9tTmKc8X5g80DJ6LB5C4VCpThk3uQy70mVrk7f0cgzN53v4IsIFmyKDNonkqnSPNX04Bvzfm_pMGqTlzo6zOwfyYGY3BZUCy24mfWo1HkbAyNUxc4unnrifzoY4hI1MIzLrPXUrx6z83bxk"/>
+<div class="absolute top-3 right-3">
+<span class="px-2.5 py-1 rounded-full bg-terminal-emerald/90 text-white font-label-badge text-label-badge uppercase font-semibold">Template</span>
+</div>
+</div>
+<div class="p-space-lg flex flex-col flex-1 gap-space-md">
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold">BikeKart</h3>
+<span class="font-label-code text-label-badge text-terminal-emerald">Showcase</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">BikeKart is just another bike store web template with multiple sections and responsive catalog display.</p>
+</div>
+<div class="flex flex-wrap gap-1.5 mt-auto pt-2">
+<span class="px-2 py-0.5 rounded bg-surface-container font-label-code text-label-badge text-primary">HTML5</span>
+<span class="px-2 py-0.5 rounded bg-surface-container font-label-code text-label-badge text-primary">CSS3</span>
+<span class="px-2 py-0.5 rounded bg-surface-container font-label-code text-label-badge text-primary">Responsive</span>
+</div>
+<div class="pt-2 flex items-center justify-between">
+<a class="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-surface-container-high hover:bg-surface-variant text-on-surface font-body-sm text-body-sm font-semibold transition-all" href="https://itsvijaysingh.github.io/BikeKart/" rel="noreferrer" target="_blank">
+<span>Visit Store</span>
+<span class="material-symbols-outlined text-[16px]">arrow_outward</span>
+</a>
+<span class="font-label-badge text-label-badge text-outline flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">desktop_windows</span> Multi-page
+              </span>
+</div>
+</div>
+</div>
+<!-- Project 3: SimplCalc -->
+<div class="bg-surface-container-low rounded-xl overflow-hidden shadow-xl flex flex-col group hover:shadow-2xl transition-all">
+<div class="relative w-full aspect-[16/10] bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Screenshot preview mockup of SimplCalc, a high precision modern digital calculator web application interface with neon glow buttons and smooth animations." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-yazb-TRb0vDRrV31fJXgI9gAKXAMciPlXlHtRbj6BFQGvK7pAihYcT-HVegne2YOKOmqcc5PqZizQb33h5ILUxlKmAOIxpoAjVGM3kKExDiUKFqsjCnXNu2A9AMcZ0A4geuNH3hQx7aJ0NJu6bC2fvSngQANsAulcSS7ktKy4zHlxJjhbV4wZz1mM7hrQpSE4S0nAVQc8YjN-0DXS63JTJw0fTOvX8F4fDUYhr54BGfbN-GfsF7s"/>
+<div class="absolute top-3 right-3">
+<span class="px-2.5 py-1 rounded-full bg-secondary-container text-white font-label-badge text-label-badge uppercase font-semibold">In Progress</span>
+</div>
+</div>
+<div class="p-space-lg flex flex-col flex-1 gap-space-md">
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold">SimplCalc</h3>
+<span class="font-label-code text-label-badge text-secondary">v0.9</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Tired of calculating manually? SimplCalc is best and faster solution for streamlined daily computations.</p>
+</div>
+<div class="flex flex-wrap gap-1.5 mt-auto pt-2">
+<span class="px-2 py-0.5 rounded bg-surface-container font-label-code text-label-badge text-primary">HTML</span>
+<span class="px-2 py-0.5 rounded bg-surface-container font-label-code text-label-badge text-primary">CSS</span>
+<span class="px-2 py-0.5 rounded bg-surface-container font-label-code text-label-badge text-primary">JS Math</span>
+</div>
+<div class="pt-2 flex items-center justify-between">
+<button class="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-surface-container-high hover:bg-surface-variant text-on-surface-variant font-body-sm text-body-sm font-semibold transition-all" type="button">
+<span>View Prototype</span>
+<span class="material-symbols-outlined text-[16px]">hourglass_top</span>
+</button>
+<span class="font-label-badge text-label-badge text-secondary flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-neon-magenta animate-pulse"></span> Deploying
+              </span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- TESTIMONIALS SECTION -->
+<section class="w-full bg-surface-container-lowest py-space-3xl">
+<div class="max-w-[1200px] mx-auto px-margin-mobile lg:px-margin flex flex-col gap-space-2xl">
+<!-- Section Header -->
+<div class="flex flex-col items-center text-center gap-2">
+<span class="font-label-code text-label-badge uppercase tracking-widest text-primary">What they Think?</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Testimonials</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-lg">What do my friends, colleagues, and clients say about working together.</p>
+</div>
+<!-- Testimonial Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-md">
+<!-- Review 1: Moinudeen -->
+<div class="bg-surface-container-low p-space-lg rounded-xl flex flex-col justify-between gap-space-md shadow-lg">
+<div class="flex flex-col gap-2">
+<span class="material-symbols-outlined text-neon-violet text-[28px] opacity-75">format_quote</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+              "Your brilliance is truly inspiring. You bring so much positivity and creativity wherever you go. Keep shining brightly! Working with you has been always an incredible experience."
+            </p>
+</div>
+<div class="flex items-center gap-3 pt-3 bg-surface-container-low">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center font-bold text-on-primary-container text-body-md shadow-sm">
+              M
+            </div>
+<div>
+<p class="font-headline-sm text-body-md font-semibold text-on-surface">Moinudeen</p>
+<p class="font-label-badge text-label-badge text-primary uppercase">Programmer</p>
+</div>
+</div>
+</div>
+<!-- Review 2: Nadeem -->
+<div class="bg-surface-container-low p-space-lg rounded-xl flex flex-col justify-between gap-space-md shadow-lg">
+<div class="flex flex-col gap-2">
+<span class="material-symbols-outlined text-neon-magenta text-[28px] opacity-75">format_quote</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+              "Bro, I admire your hard work. Your efforts speak volumes about you. You're amazing! Much love, bro! 🤜🤛"
+            </p>
+</div>
+<div class="flex items-center gap-3 pt-3 bg-surface-container-low">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center font-bold text-white text-body-md shadow-sm">
+              N
+            </div>
+<div>
+<p class="font-headline-sm text-body-md font-semibold text-on-surface">Nadeem</p>
+<p class="font-label-badge text-label-badge text-secondary uppercase">Friend &amp; Collaborator</p>
+</div>
+</div>
+</div>
+<!-- Review 3: Jwala Pratap -->
+<div class="bg-surface-container-low p-space-lg rounded-xl flex flex-col justify-between gap-space-md shadow-lg">
+<div class="flex flex-col gap-2">
+<span class="material-symbols-outlined text-terminal-cyan text-[28px] opacity-75">format_quote</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+              "Vijay's commitment and hard work shine through in everything he does. Truly dependable for web delivery."
+            </p>
+</div>
+<div class="flex items-center gap-3 pt-3 bg-surface-container-low">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center font-bold text-terminal-cyan text-body-md shadow-sm">
+              J
+            </div>
+<div>
+<p class="font-headline-sm text-body-md font-semibold text-on-surface">Jwala Pratap</p>
+<p class="font-label-badge text-label-badge text-terminal-cyan uppercase">Web Developer</p>
+</div>
+</div>
+</div>
+<!-- Review 4: Rahul Sharma -->
+<div class="bg-surface-container-low p-space-lg rounded-xl flex flex-col justify-between gap-space-md shadow-lg">
+<div class="flex flex-col gap-2">
+<span class="material-symbols-outlined text-terminal-emerald text-[28px] opacity-75">format_quote</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+              "Working with Vijay has been an incredible experience. His dedication in web development truly shines through his work. He has a remarkable ability to turn ideas into reality."
+            </p>
+</div>
+<div class="flex items-center gap-3 pt-3 bg-surface-container-low">
+<div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center font-bold text-on-primary text-body-md shadow-sm">
+              R
+            </div>
+<div>
+<p class="font-headline-sm text-body-md font-semibold text-on-surface">Rahul Sharma</p>
+<p class="font-label-badge text-label-badge text-terminal-emerald uppercase">Software Developer</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- BLOGS SECTION -->
+<section class="w-full py-space-3xl max-w-[1200px] mx-auto px-margin-mobile lg:px-margin" id="blogs">
+<div class="flex flex-col gap-space-2xl">
+<!-- Section Header -->
+<div class="flex flex-col items-center text-center gap-2">
+<span class="font-label-code text-label-badge uppercase tracking-widest text-primary">Do I Write?</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">My Gaming &amp; Tech Articles</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-lg">From tech tips to gaming guides, here are some written pieces from my publication GamesRoid.</p>
+</div>
+<!-- Blogs Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-lg">
+<!-- Blog 1 -->
+<article class="bg-surface-container-low rounded-xl overflow-hidden shadow-xl flex flex-col group hover:shadow-2xl transition-all">
+<div class="relative w-full aspect-[16/10] bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Vibrant visual for Township mobile game upgrade guide displaying farming structures, town management interface, and colorful festive decorations." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEhZWoC86D5ZOCFwmR7dJ90t_kCUy9YHcoFRJtKYNsL1kPe1WWztLHsSO26GG44ttPsIHcdxrjfjbR0J1ehPe891pKe74iY6-EixdzQeTrkT6h139WxJYIg0CcohY1ia79-P1Jdj-rj3yWGX43WqUA54yLLFVeFRyJ2ZzZ15n6ShuQRfWdHqw4xr88RLt93YTnnIrPubbsDdicCmyByHMWFvNb1R5ydISImMgebLBz5nBfVSHAbfrj"/>
+<div class="absolute top-3 left-3">
+<span class="px-2.5 py-1 rounded-full bg-surface-container-lowest/80 backdrop-blur-md text-terminal-cyan font-label-badge text-label-badge uppercase font-semibold">Gaming Guide</span>
+</div>
+</div>
+<div class="p-space-lg flex flex-col flex-1 justify-between gap-space-md">
+<div class="flex flex-col gap-2">
+<h3 class="font-headline-sm text-body-lg font-semibold text-on-surface group-hover:text-primary transition-colors">
+                How to Update Township Game – Guide for Every Platform!
+              </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                Keep your Township updated seamlessly and experience all the latest seasonal features and bug patches.
+              </p>
+</div>
+<a class="inline-flex items-center gap-1 font-body-sm text-body-sm font-semibold text-primary hover:text-neon-violet transition-colors" href="https://gamesroid.com/how-to-update-township-game/" rel="noreferrer" target="_blank">
+<span>Read More</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</article>
+<!-- Blog 2 -->
+<article class="bg-surface-container-low rounded-xl overflow-hidden shadow-xl flex flex-col group hover:shadow-2xl transition-all">
+<div class="relative w-full aspect-[16/10] bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Dynamic banner representing mobile gaming in India featuring competitive battle royale characters, intense esports lighting, and neon HUD elements." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNgwr7Ho3T6eY0DzWdU33hjQu1PrcmzEYPtSaggI_13CZrJYq42mOQegsyY-UelsrrelkfIICxKEIu_MucF7J8XA8yYqE89EDb9VoCGk_I9_Is403N_dyraBj5ePzOqyCqcqnssq3qJKWg7_uwfjfFAdJhG4gPQl9NmSY1wSzUs8TDduOaDvOkmgXTw3BvLKftnCUKWw5adSP-4yebhdihELLOBLmA7vtADfiz8YGYmZr5bWd3KN6e"/>
+<div class="absolute top-3 left-3">
+<span class="px-2.5 py-1 rounded-full bg-surface-container-lowest/80 backdrop-blur-md text-neon-magenta font-label-badge text-label-badge uppercase font-semibold">Mobile Gaming</span>
+</div>
+</div>
+<div class="p-space-lg flex flex-col flex-1 justify-between gap-space-md">
+<div class="flex flex-col gap-2">
+<h3 class="font-headline-sm text-body-lg font-semibold text-on-surface group-hover:text-primary transition-colors">
+                Most Popular Mobile Games in India – Android &amp; iOS 
+              </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                Find out the top trendiest and most popular mobile games captivating millions of mobile players in India!
+              </p>
+</div>
+<a class="inline-flex items-center gap-1 font-body-sm text-body-sm font-semibold text-primary hover:text-neon-violet transition-colors" href="https://gamesroid.com/most-popular-mobile-games-in-india/" rel="noreferrer" target="_blank">
+<span>Read More</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</article>
+<!-- Blog 3 -->
+<article class="bg-surface-container-low rounded-xl overflow-hidden shadow-xl flex flex-col group hover:shadow-2xl transition-all">
+<div class="relative w-full aspect-[16/10] bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Aesthetic Discord banners showcase graphic with animated neon violet waves, cyberpunk pixel art badges, and dark stylish typography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAoPMkq2r8pzE4ISN6MZGM0QbvbwLSrIq7qP5YHFkIDGhJBl0RILGFlSzCMkd8a6H1xo_BmnP_NhGL6ntWh3t-sZqF-jayH3jwW9rmywBxw1dM2zPK3BlviBg-2eC_4Shna0KByKyC-PgtVEAPLeoTpE4z42WeAAlFhE_MN3sDlpXb4gQeebceMCKv3HidC2OIcVlENuXPVcxMjmgCNzzdspZ5biWpxldKXy1MPy3q6F5e8gJ33X1Yh"/>
+<div class="absolute top-3 left-3">
+<span class="px-2.5 py-1 rounded-full bg-surface-container-lowest/80 backdrop-blur-md text-neon-violet font-label-badge text-label-badge uppercase font-semibold">Customization</span>
+</div>
+</div>
+<div class="p-space-lg flex flex-col flex-1 justify-between gap-space-md">
+<div class="flex flex-col gap-2">
+<h3 class="font-headline-sm text-body-lg font-semibold text-on-surface group-hover:text-primary transition-colors">
+                100+ Best Discord Banners and GIFs
+              </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                From anime aesthetics to cuteness and cyber coolness, static to animated – curate the ultimate server identity.
+              </p>
+</div>
+<a class="inline-flex items-center gap-1 font-body-sm text-body-sm font-semibold text-primary hover:text-neon-violet transition-colors" href="https://gamesroid.com/best-discord-banners/" rel="noreferrer" target="_blank">
+<span>Read More</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</article>
+</div>
+</div>
+</section>
+<!-- CONTACT / GET IN TOUCH SECTION -->
+<section class="w-full bg-surface-container-lowest py-space-3xl relative overflow-hidden" id="contact">
+<!-- Ambient highlight behind contact card -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[34rem] h-[34rem] bg-neon-violet/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
+<div class="max-w-[800px] mx-auto px-margin-mobile lg:px-margin flex flex-col gap-space-xl">
+<!-- Section Header -->
+<div class="flex flex-col items-center text-center gap-2">
+<span class="font-label-code text-label-badge uppercase tracking-widest text-primary">What's next!</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Get In Touch</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md">
+          Interested in working together? We should schedule a time to chat. I'll bring the coffee.
+        </p>
+</div>
+<!-- Modern Glass Form -->
+<div class="bg-surface-container-low/90 backdrop-blur-xl p-space-xl rounded-2xl shadow-2xl flex flex-col gap-space-lg">
+<form class="flex flex-col gap-space-md" id="contactForm" onsubmit="event.preventDefault(); document.getElementById('feedback').classList.remove('hidden');">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<!-- Name Input -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-code text-label-code text-on-surface" for="contact-name">Name <span class="text-neon-magenta">*</span></label>
+<input class="w-full px-4 py-3 rounded-lg bg-surface-container text-on-surface placeholder:text-outline/60 focus:bg-surface-container-high focus:outline-none focus:ring-2 focus:ring-neon-violet transition-all shadow-inner font-body-sm text-body-sm" id="contact-name" placeholder="e.g. Alex Turner" required="" type="text"/>
+</div>
+<!-- Email Input -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-code text-label-code text-on-surface" for="contact-email">Email <span class="text-neon-magenta">*</span></label>
+<input class="w-full px-4 py-3 rounded-lg bg-surface-container text-on-surface placeholder:text-outline/60 focus:bg-surface-container-high focus:outline-none focus:ring-2 focus:ring-neon-violet transition-all shadow-inner font-body-sm text-body-sm" id="contact-email" placeholder="alex@company.com" required="" type="email"/>
+</div>
+</div>
+<!-- Subject Input -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-code text-label-code text-on-surface" for="contact-subject">Subject <span class="text-neon-magenta">*</span></label>
+<input class="w-full px-4 py-3 rounded-lg bg-surface-container text-on-surface placeholder:text-outline/60 focus:bg-surface-container-high focus:outline-none focus:ring-2 focus:ring-neon-violet transition-all shadow-inner font-body-sm text-body-sm" id="contact-subject" placeholder="Web Development / Template Commission" required="" type="text"/>
+</div>
+<!-- Message Textarea -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-code text-label-code text-on-surface" for="contact-message">Your Message <span class="text-neon-magenta">*</span></label>
+<textarea class="w-full px-4 py-3 rounded-lg bg-surface-container text-on-surface placeholder:text-outline/60 focus:bg-surface-container-high focus:outline-none focus:ring-2 focus:ring-neon-violet transition-all shadow-inner font-body-sm text-body-sm resize-none" id="contact-message" placeholder="Tell me about your project, timeline, or idea..." required="" rows="5"></textarea>
+</div>
+<!-- Submit Button -->
+<div class="pt-2 flex flex-col sm:flex-row items-center justify-between gap-space-md">
+<button class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-lg bg-gradient-to-r from-neon-violet to-neon-magenta text-white font-headline-sm text-body-md font-semibold tracking-wide shadow-[0_0_24px_rgba(139,92,246,0.35)] hover:shadow-[0_0_32px_rgba(236,72,153,0.5)] transition-all transform hover:-translate-y-0.5" type="submit">
+<span>Send Message</span>
+<span class="material-symbols-outlined text-[18px]">send</span>
+</button>
+<div class="flex items-center gap-2 text-on-surface-variant font-label-badge text-label-badge">
+<span class="material-symbols-outlined text-terminal-emerald text-[16px]">lock</span>
+<span>Encrypted • Direct Inbox Delivery</span>
+</div>
+</div>
+</form>
+<!-- Dynamic Success Toast -->
+<div class="hidden p-4 rounded-lg bg-surface-container-high flex items-center gap-3" id="feedback">
+<span class="material-symbols-outlined text-terminal-emerald text-[24px]">check_circle</span>
+<div>
+<p class="font-headline-sm text-body-md font-semibold text-on-surface">Message dispatched!</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Thanks for reaching out! Vijay will respond within 24 hours.</p>
+</div>
+</div>
+</div>
+<!-- Quick Contact Pills -->
+<div class="flex flex-wrap items-center justify-center gap-space-md text-center">
+<div class="flex items-center gap-2 px-4 py-2 rounded-full bg-surface-container-low shadow-sm">
+<span class="material-symbols-outlined text-neon-violet text-[18px]">mail</span>
+<span class="font-label-code text-label-badge text-on-surface">vijay@itsvijay.com</span>
+</div>
+<div class="flex items-center gap-2 px-4 py-2 rounded-full bg-surface-container-low shadow-sm">
+<span class="material-symbols-outlined text-terminal-cyan text-[18px]">location_on</span>
+<span class="font-label-code text-label-badge text-on-surface">India (IST GMT+5:30)</span>
+</div>
+<div class="flex items-center gap-2 px-4 py-2 rounded-full bg-surface-container-low shadow-sm">
+<span class="material-symbols-outlined text-neon-magenta text-[18px]">coffee</span>
+<span class="font-label-code text-label-badge text-on-surface">Coffee &amp; Code Ready</span>
+</div>
+</div>
+</div>
+</section>
+<!-- MICRO INTERACTION SCRIPTS -->
+<script>
+    // Smooth scrolling for navigation anchors
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const targetId = this.getAttribute('href');
+        if (targetId && targetId !== '#') {
+          const targetElem = document.querySelector(targetId);
+          if (targetElem) {
+            e.preventDefault();
+            targetElem.scrollIntoView({ behavior: 'smooth' });
+          }
+        }
+      });
+    });
+  </script>
+</div></main><footer class="w-full bg-surface-container-lowest shadow-[0_-1px_8px_rgba(0,0,0,0.04)]"><div class="max-w-[1200px] mx-auto px-margin-mobile lg:px-margin py-space-xl flex flex-col md:flex-row items-center justify-between gap-space-lg"><div class="flex flex-col items-center md:items-start gap-space-xs"><div class="flex items-center gap-space-xs font-label-code text-label-code text-primary"><span class="text-neon-violet font-bold">&lt;</span><span class="font-headline-sm text-headline-sm font-semibold text-on-surface">Vijay Singh</span><span class="text-neon-magenta font-bold">/&gt;</span></div><p class="font-body-sm text-body-sm text-on-surface-variant text-center md:text-left">© 2025 Vijay Singh. All architectural rights reserved.</p></div><div class="flex items-center gap-space-xs bg-surface-container px-4 py-2 rounded-full shadow-inner"><span class="material-symbols-outlined text-neon-violet text-[16px]">terminal</span><span class="font-label-badge text-label-badge text-on-surface-variant uppercase tracking-wider">Built with clean code &amp; passion</span></div><nav class="flex flex-wrap items-center justify-center gap-space-md" data-active-classes="bg-primary-container text-on-primary-container font-semibold rounded-lg"><a aria-current="page" class="transition-colors bg-primary-container text-on-primary-container font-semibold rounded-lg" data-path="home" href="#">Home</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="about" href="#">About</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="skills" href="#">Skills</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="projects" href="#">Projects</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="blogs" href="#">Blogs</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="contact" href="#">Contact</a></nav></div></footer></body></html>
