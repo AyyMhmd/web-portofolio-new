@@ -60,11 +60,11 @@ export default function App() {
         {/* Featured Projects Section */}
         <Projects />
 
-        {/* Testimonials & Endorsements Section */}
-        <Testimonials />
+        {/* Testimonials & Endorsements Section
+        <Testimonials /> */}
 
-        {/* Contact & Get In Touch Section */}
-        <Contact />
+        {/* Contact & Get In Touch Section
+        <Contact /> */}
       </main>
 
       {/* Footer */}
