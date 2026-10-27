@@ -119,7 +119,7 @@ export const Experience: React.FC = () => {
               </h3>
             </div>
             <a
-              href="https://www.dicoding.com"
+              href="https://www.dicoding.com/users/ayii_mhmd/academies"
               target="_blank"
               rel="noreferrer"
               className="text-xs text-[#d0bcff] hover:text-white flex items-center gap-1 font-mono transition-colors"
