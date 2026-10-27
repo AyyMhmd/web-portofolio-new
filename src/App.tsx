@@ -15,7 +15,7 @@ export default function App() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'about', 'skills', 'projects', 'experience', 'contact'];
+      const sections = ['home', 'about', 'experience', 'skills', 'projects', 'contact'];
       const scrollPosition = window.scrollY + 250;
 
       for (const section of sections) {
@@ -51,14 +51,14 @@ export default function App() {
         {/* About Me Section */}
         <About />
 
+        {/* Pendidikan, Pengalaman & Sertifikasi Section */}
+        <Experience />
+
         {/* Skills & Tech Stack Section */}
         <Skills />
 
         {/* Featured Projects Section */}
         <Projects />
-
-        {/* Experience & Certifications (Dicoding MSIB & STTC) */}
-        <Experience />
 
         {/* Testimonials & Endorsements Section */}
         <Testimonials />

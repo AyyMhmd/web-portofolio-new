@@ -37,14 +37,14 @@ export const Footer: React.FC = () => {
           <a href="#about" className="hover:text-white transition-colors">
             About
           </a>
+          <a href="#experience" className="hover:text-white transition-colors">
+            Experience
+          </a>
           <a href="#skills" className="hover:text-white transition-colors">
             Skills
           </a>
           <a href="#projects" className="hover:text-white transition-colors">
             Projects
-          </a>
-          <a href="#experience" className="hover:text-white transition-colors">
-            Experience
           </a>
           <a href="#contact" className="hover:text-white transition-colors">
             Contact

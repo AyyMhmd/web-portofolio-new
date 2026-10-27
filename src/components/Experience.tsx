@@ -8,24 +8,53 @@ export const Experience: React.FC = () => {
         {/* Section Header */}
         <div className="flex flex-col items-center text-center gap-2">
           <span className="font-mono text-xs uppercase tracking-widest text-[#d0bcff]">
-            Career &amp; Credentials
+            Education &amp; Experience
           </span>
           <h2 className="text-3xl sm:text-4xl font-bold text-[#dfe2f1]">
-            Pengalaman &amp; Sertifikasi
+            Pendidikan &amp; Pengalaman
           </h2>
           <p className="text-sm sm:text-base text-[#cbc3d7] max-w-lg">
-            Rekam jejak profesional, program magang MSIB, dan lisensi kompetensi web terverifikasi:
+            Rekam jejak akademis S1 Informatika, program magang industri MSIB Dicoding, dan lisensi kompetensi web terverifikasi:
           </p>
         </div>
 
-        {/* Experience Timeline */}
+        {/* Education & Experience Timeline */}
         <div className="flex flex-col gap-6">
           <div className="flex items-center gap-2">
-            <span className="material-symbols-outlined text-[#8B5CF6] text-[22px]">work_history</span>
-            <h3 className="text-xl font-bold text-[#dfe2f1]">Pengalaman Kerja &amp; Magang</h3>
+            <span className="material-symbols-outlined text-[#8B5CF6] text-[22px]">school</span>
+            <h3 className="text-xl font-bold text-[#dfe2f1]">Pendidikan &amp; Pengalaman Kerja</h3>
           </div>
 
           <div className="space-y-6">
+            {/* Education Card */}
+            <div className="bg-[#171b26] border border-[#06B6D4]/40 shadow-[0_0_20px_rgba(6,182,212,0.12)] rounded-xl p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+              <div className="flex items-start gap-3.5">
+                <div className="w-12 h-12 rounded-xl bg-[#06B6D4]/15 border border-[#06B6D4]/30 flex items-center justify-center text-[#06B6D4] flex-shrink-0">
+                  <span className="material-symbols-outlined text-[28px]">school</span>
+                </div>
+                <div>
+                  <div className="flex flex-wrap items-center gap-2">
+                    <h4 className="text-base sm:text-lg font-bold text-white">
+                      Sekolah Tinggi Teknologi Cipasung, Tasikmalaya
+                    </h4>
+                    <span className="px-2 py-0.5 rounded-full bg-[#06B6D4]/20 border border-[#06B6D4]/40 text-[#06B6D4] font-mono text-[10px] uppercase font-semibold">
+                      Pendidikan Formal
+                    </span>
+                  </div>
+                  <p className="text-xs sm:text-sm text-[#cbc3d7] mt-0.5">
+                    S1 Informatika (2022 - 2026) • Fokus Front-End Web Development
+                  </p>
+                  <p className="font-mono text-xs text-[#10B981] font-semibold mt-1">
+                    Indeks Prestasi Kumulatif (IPK): 3.76 / 4.00 (Cum Laude Track)
+                  </p>
+                </div>
+              </div>
+              <div className="px-3.5 py-1.5 rounded-lg bg-[#262a35] border border-[#353944] text-xs font-mono text-[#d0bcff] self-end sm:self-center">
+                Akademik Unggul
+              </div>
+            </div>
+
+            {/* Experience Cards */}
             {EXPERIENCES.map((exp, idx) => (
               <div
                 key={idx}
@@ -77,29 +106,6 @@ export const Experience: React.FC = () => {
                 </div>
               </div>
             ))}
-
-            {/* Education Card */}
-            <div className="bg-[#171b26] border border-[#262a35] rounded-xl p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-              <div className="flex items-start gap-3.5">
-                <div className="w-12 h-12 rounded-xl bg-[#06B6D4]/15 border border-[#06B6D4]/30 flex items-center justify-center text-[#06B6D4] flex-shrink-0">
-                  <span className="material-symbols-outlined text-[28px]">school</span>
-                </div>
-                <div>
-                  <h4 className="text-base sm:text-lg font-bold text-white">
-                    Sekolah Tinggi Teknologi Cipasung, Tasikmalaya
-                  </h4>
-                  <p className="text-xs sm:text-sm text-[#cbc3d7]">
-                    S1 Informatika (2022 - 2026) • Fokus Front-End Web Development
-                  </p>
-                  <p className="font-mono text-xs text-[#10B981] font-semibold mt-1">
-                    Indeks Prestasi Kumulatif (IPK): 3.76 / 4.00
-                  </p>
-                </div>
-              </div>
-              <div className="px-3.5 py-1.5 rounded-lg bg-[#262a35] border border-[#353944] text-xs font-mono text-[#d0bcff] self-end sm:self-center">
-                Akademik Unggul
-              </div>
-            </div>
           </div>
         </div>
 
