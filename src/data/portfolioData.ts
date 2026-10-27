@@ -51,7 +51,7 @@ export const PERSONAL_INFO = {
   campus: 'Sekolah Tinggi Teknologi Cipasung',
   degree: 'S1 Informatika (2022 - 2026)',
   status: 'Available for hire / Magang',
-  avatarImage: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDLdOBofummEEVDZtFXNGQwv5ib91ur4uxfh_9C90dqKxqSx2sT5jqUWpF9is7bU4fWmBc5E70yEMc96g8iPs5sMBFalkQNq61J6E6JpOUAOsYGpDnPy5EfaL4tt95DR1j0OsbatkrLXLnqJhGFhC02xEJ7Qt_PweSd_gYieGgWJe56FKrrQ_Vt4sDTTWLPcCkZv_tEksDVKe3d8o5KP3vnoY9Q8j_WIJSMHKZN-u5YVJH0ND_1qAnu'
+  avatarImage: '/assets/aistudio/WhatsApp_Image_2026-10-27_at_1.35.02_PM_7c88e43d.jpeg'
 };
 
 export const PROJECTS: Project[] = [
