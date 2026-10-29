@@ -162,7 +162,7 @@ export const PROJECTS: Project[] = [
       'Notifikasi pesan masuk langsung ke administrator',
       'Log percakapan dan ringkasan aktivitas harian'
     ],
-    githubUrl: 'https://github.com/AyyMhmd',
+    githubUrl: 'https://github.com/AyyMhmd/virtual-asisten.git',
     verified: true
   },
   {
@@ -254,6 +254,13 @@ export const CERTIFICATIONS: Certification[] = [
     date: '2025',
     credentialUrl: 'https://www.dicoding.com',
     skills: ['Version Control System', 'Branching & Merging', 'Pull Requests', 'Conflict Resolution']
+  },
+  {
+    title: 'Front End Untuk Pemula',
+    issuer: 'Dicoding Indonesia',
+    date: '2025',
+    credentialUrl: 'https://www.dicoding.com',
+    skills: ['Browser Object Model (BOM)', 'Document Object Model (DOM)', 'Event Handling', 'Form Validation', 'Penyimpanan Data Web Storage']
   }
 ];
 
