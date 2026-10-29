@@ -63,7 +63,7 @@ export const PROJECTS: Project[] = [
     version: 'v1.0 Capstone',
     description: 'Membangun aplikasi web pembelajaran Bahasa Isyarat interaktif dengan fitur pelacakan gerakan real-time melalui webcam dan local storage.',
     longDescription: 'e-Syarat merupakan proyek Capstone kolaboratif dalam program MSIB Kampus Merdeka di Dicoding Indonesia. Aplikasi ini menjembatani komunikasi inklusif melalui deteksi gerakan tangan real-time via WebCam, sistem kuis interaktif, modul pembelajaran terstruktur, dan penyimpanan progres offline menggunakan LocalStorage.',
-    image: 'public/assets/aistudio/a9aafd16cd-13dccc4c0470c969d844.png',
+    image: '/assets/aistudio/a9aafd16cd-13dccc4c0470c969d844.png',
     tags: ['HTML5', 'CSS3', 'JavaScript', 'WebCam Tracking', 'LocalStorage', 'Git/GitHub'],
     features: [
       'Pelacakan gerakan gestur tangan real-time via WebCam API',
@@ -86,7 +86,7 @@ export const PROJECTS: Project[] = [
     version: 'v2.1 SPA',
     description: 'Aplikasi web Single Page Application untuk berbagi cerita komunitas dengan integrasi Story API Dicoding dan deployment GitHub Pages.',
     longDescription: 'CeritaKita adalah Single Page Application modern yang dibuat dengan JavaScript murni (ES6+), mengimplementasikan client-side routing kustom, otentikasi JWT token, unggah foto cerita dengan kompresi klien, dan integrasi peta interaktif untuk menampilkan titik lokasi cerita dibagikan.',
-    image: 'public/assets/aistudio/Gemini_Generated_Image_5y0qs85y0qs85y0q.jpg',
+    image: '/assets/aistudio/Gemini_Generated_Image_5y0qs85y0qs85y0q.jpg',
     tags: ['JavaScript', 'Story API', 'SPA', 'Routing Client', 'GitHub Pages'],
     features: [
       'Single Page Application tanpa reload halaman (Hash/History Router)',
@@ -109,7 +109,7 @@ export const PROJECTS: Project[] = [
     version: 'v1.5 Live',
     description: 'Sistem rapot digital modern berbasis React JS dan Supabase untuk mempermudah guru mengelola nilai serta akses transparan bagi siswa.',
     longDescription: 'Membangun sistem informasi rapot digital untuk sekolah SMK Nangkaleah. Memudahkan para dewan guru dalam menginput nilai akademik, kehadiran, ekstrakurikuler, dan catatan wali kelas, sekaligus menyediakan portal aman bagi siswa dan orang tua untuk mengunduh rekap hasil belajar.',
-    image: 'public/assets/aistudio/sistem rapot.jpg',
+    image: '/assets/aistudio/sistem rapot.jpg',
     tags: ['React JS', 'Supabase', 'Tailwind CSS', 'Vercel', 'PostgreSQL'],
     features: [
       'Multi-role authentication (Admin, Wali Kelas, Guru Pengampu, Siswa)',
@@ -132,7 +132,7 @@ export const PROJECTS: Project[] = [
     version: 'v1.0 Enterprise',
     description: 'Platform web untuk mengelola jadwal praktikum mahasiswa, peminjaman ruangan, dan inventaris alat laboratorium terintegrasi.',
     longDescription: 'LabMIS (Laboratory Management Information System) dirancang untuk memodernisasi operasional laboratorium kampus. Menggabungkan arsitektur frontend React Vite yang dinamis dengan backend Python Django REST Framework yang tangguh dan database MySQL.',
-    image: 'public/assets/aistudio/labmis.jpg',
+    image: '/assets/aistudio/labmis.jpg',
     tags: ['React Vite', 'Python Django', 'REST Framework', 'MySQL', 'JWT'],
     features: [
       'Jadwal kalender praktikum interaktif & deteksi bentrok ruangan',
@@ -154,7 +154,7 @@ export const PROJECTS: Project[] = [
     version: 'v2.0 Bot',
     description: 'Chatbot asisten virtual cerdas di Telegram berbasis Python untuk menjawab pertanyaan pelanggan dan otomasi layanan bisnis 24 jam.',
     longDescription: 'Dikembangkan menggunakan Python dan Telegram Bot API untuk mengotomatisasi interaksi pelanggan, pencatatan pesanan, dan penyampaian informasi produk dengan waktu respons seketika.',
-    image: 'public/assets/aistudio/virtual asisten.jpg',
+    image: '/assets/aistudio/virtual asisten.jpg',
     tags: ['Python', 'Telegram Bot API', 'Async IO', 'Automation'],
     features: [
       'Respon otomatis pertanyaan umum (FAQ) interaktif',
@@ -175,7 +175,7 @@ export const PROJECTS: Project[] = [
     version: 'v1.0 Hardware',
     description: 'Sistem absensi mandiri berbasis mikrokontroler Arduino, pemindai kartu RFID RC522, dan visualisasi status kehadiran pada layar LCD I2C.',
     longDescription: 'Proyek rekayasa perangkat keras yang mengintegrasikan mikrokontroler Arduino Uno, sensor Radio Frequency Identification (RFID), buzzer alarm, dan layar LCD untuk verifikasi identitas fisik secara cepat dan akurat.',
-    image: 'public/assets/aistudio/absensi-tapcard.jpg',
+    image: '/assets/aistudio/absensi-tapcard.jpg',
     tags: ['Arduino', 'C++', 'RFID RC522', 'I2C LCD', 'Embedded Systems'],
     features: [
       'Pembacaan UID kartu RFID dengan latensi rendah (<200ms)',
