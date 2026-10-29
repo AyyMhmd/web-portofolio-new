@@ -184,17 +184,7 @@ export const Contact: React.FC = () => {
               {copiedEmail ? 'Email Disalin!' : PERSONAL_INFO.email}
             </span>
           </button>
-
-          <a
-            href={PERSONAL_INFO.whatsappUrl}
-            target="_blank"
-            rel="noreferrer"
-            className="flex items-center gap-2 px-4 py-2.5 rounded-full bg-[#171b26] hover:bg-[#262a35] border border-[#262a35] shadow-sm transition-all text-[#dfe2f1]"
-          >
-            <span className="material-symbols-outlined text-[#10B981] text-[18px]">chat_bubble</span>
-            <span className="font-mono text-xs">WhatsApp: {PERSONAL_INFO.phone}</span>
-          </a>
-
+          
           <div className="flex items-center gap-2 px-4 py-2.5 rounded-full bg-[#171b26] border border-[#262a35] shadow-sm">
             <span className="material-symbols-outlined text-[#06B6D4] text-[18px]">location_on</span>
             <span className="font-mono text-xs text-[#dfe2f1]">Tasikmalaya, ID (WIB GMT+7)</span>

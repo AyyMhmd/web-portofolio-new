@@ -40,8 +40,6 @@ export const PERSONAL_INFO = {
   shortName: 'Ayi Muhamad',
   title: 'Front-End Web Developer',
   email: 'ayi.muhamadd@gmail.com',
-  phone: '081949949417',
-  whatsappUrl: 'https://wa.me/6281949949417',
   location: 'Tasikmalaya, Indonesia (WIB GMT+7)',
   github: 'https://github.com/AyyMhmd',
   githubUser: 'AyyMhmd',
@@ -239,21 +237,21 @@ export const CERTIFICATIONS: Certification[] = [
   {
     title: 'Dasar Pemrograman Web',
     issuer: 'Dicoding Indonesia',
-    date: '2024',
+    date: '2025',
     credentialUrl: 'https://www.dicoding.com',
     skills: ['HTML5 Semantic', 'CSS3 Layouting', 'Flexbox & CSS Grid', 'Responsive Media Queries']
   },
   {
     title: 'Dasar Pemrograman JavaScript',
     issuer: 'Dicoding Indonesia',
-    date: '2024',
+    date: '2025',
     credentialUrl: 'https://www.dicoding.com',
     skills: ['Data Types & Structures', 'OOP in JS', 'Functional Programming', 'Asynchronous JS (Promise & Async/Await)']
   },
   {
     title: 'Dasar Git dengan GitHub',
     issuer: 'Dicoding Indonesia',
-    date: '2024',
+    date: '2025',
     credentialUrl: 'https://www.dicoding.com',
     skills: ['Version Control System', 'Branching & Merging', 'Pull Requests', 'Conflict Resolution']
   }
@@ -295,38 +293,3 @@ export const SKILLS_DATA = {
     { title: 'Problem Solving', desc: 'Menganalisis akar masalah kode secara sistematis demi menghasilkan solusi efisien.' }
   ]
 };
-
-export const TESTIMONIALS = [
-  {
-    name: 'Dicoding Peer Collaborator',
-    role: 'Fullstack MSIB Cohort',
-    initial: 'D',
-    bgColor: 'bg-primary-container',
-    textColor: 'text-on-primary-container',
-    quote: 'Ayi memiliki dedikasi luar biasa saat pengerjaan capstone e-Syarat. Logika pemrograman dan eksekusi antarmukanya sangat rapi, bersih, dan solutif bagi pengguna.'
-  },
-  {
-    name: 'Fahri Ramadhan',
-    role: 'Rekan Tim Capstone',
-    initial: 'F',
-    bgColor: 'bg-secondary-container',
-    textColor: 'text-white',
-    quote: 'Kerja bareng Ayi di proyek web selalu menyenangkan. Komunikasi tim berjalan lancar, tugas integrasi WebCam dan frontend terselesaikan tepat waktu dengan standar tinggi.'
-  },
-  {
-    name: 'SMK Nangkaleah Staff',
-    role: 'Pengguna Rapot Digital',
-    initial: 'S',
-    bgColor: 'bg-surface-container-highest',
-    textColor: 'text-terminal-cyan',
-    quote: 'Sistem rapot digital yang dikembangkan oleh Ayi sangat membantu proses rekap nilai dewan guru. UI-nya intuitif, cepat, dan tidak membingungkan orang tua murid.'
-  },
-  {
-    name: 'Dosen Pembimbing IT',
-    role: 'Sekolah Tinggi Teknologi Cipasung',
-    initial: 'P',
-    bgColor: 'bg-primary',
-    textColor: 'text-on-primary',
-    quote: 'Ayi konsisten menunjukkan performa akademis unggul (IPK 3.76) diimbangi dengan portofolio proyek praktis nyata yang berkualitas. Calon developer profesional yang potensial.'
-  }
-];
