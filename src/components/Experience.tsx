@@ -1,22 +1,30 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { EXPERIENCES, CERTIFICATIONS } from '../data/portfolioData';
+import { getLocalizedExperiences, getLocalizedCertifications } from '../data/portfolioData';
 import { ScrollReveal } from './ScrollReveal';
+import { useLanguage } from '../context/LanguageContext';
+import { TRANSLATIONS } from '../data/translations';
 
 export const Experience: React.FC = () => {
+  const { language } = useLanguage();
+  const t = TRANSLATIONS[language].experience;
+
+  const experiences = getLocalizedExperiences(language);
+  const certifications = getLocalizedCertifications(language);
+
   return (
     <section id="experience" className="w-full bg-[#0a0e18] py-24 border-y border-[#171b26] relative overflow-hidden">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-14">
         {/* Section Header */}
         <ScrollReveal direction="up" threshold={0.2} className="flex flex-col items-center text-center gap-2">
           <span className="font-mono text-xs uppercase tracking-widest text-[#d0bcff]">
-            Education &amp; Experience
+            {t.badge}
           </span>
           <h2 className="text-3xl sm:text-4xl font-bold text-[#dfe2f1]">
-            Pendidikan &amp; Pengalaman
+            {t.title}
           </h2>
           <p className="text-sm sm:text-base text-[#cbc3d7] max-w-lg">
-            Rekam jejak akademis S1 Informatika, program magang industri MSIB Dicoding, dan lisensi kompetensi web terverifikasi:
+            {t.subtitle}
           </p>
         </ScrollReveal>
 
@@ -24,7 +32,7 @@ export const Experience: React.FC = () => {
         <div className="flex flex-col gap-6">
           <ScrollReveal direction="up" delay={0.1} className="flex items-center gap-2">
             <span className="material-symbols-outlined text-[#8B5CF6] text-[22px]">school</span>
-            <h3 className="text-xl font-bold text-[#dfe2f1]">Pendidikan &amp; Pengalaman Kerja</h3>
+            <h3 className="text-xl font-bold text-[#dfe2f1]">{t.eduExpSectionTitle}</h3>
           </ScrollReveal>
 
           <div className="space-y-6">
@@ -47,24 +55,24 @@ export const Experience: React.FC = () => {
                       Sekolah Tinggi Teknologi Cipasung, Tasikmalaya
                     </h4>
                     <span className="px-2 py-0.5 rounded-full bg-[#06B6D4]/20 border border-[#06B6D4]/40 text-[#06B6D4] font-mono text-[10px] uppercase font-semibold">
-                      Pendidikan Formal
+                      {t.formalEduBadge}
                     </span>
                   </div>
                   <p className="text-xs sm:text-sm text-[#cbc3d7] mt-0.5">
-                    S1 Informatika (2022 - 2026) • Fokus Front-End Web Development
+                    {t.formalEduDegree}
                   </p>
                   <p className="font-mono text-xs text-[#10B981] font-semibold mt-1">
-                    Indeks Prestasi Kumulatif (IPK): 3.76 / 4.00 (Cum Laude Track)
+                    {t.formalEduGpa}
                   </p>
                 </div>
               </div>
               <div className="px-3.5 py-1.5 rounded-lg bg-[#262a35] border border-[#353944] text-xs font-mono text-[#d0bcff] self-end sm:self-center">
-                Akademik Unggul
+                {t.formalEduPill}
               </div>
             </motion.div>
 
             {/* Experience Cards */}
-            {EXPERIENCES.map((exp, idx) => (
+            {experiences.map((exp, idx) => (
               <motion.div
                 key={idx}
                 initial={{ opacity: 0, y: 30 }}
@@ -82,7 +90,7 @@ export const Experience: React.FC = () => {
                       <h4 className="text-lg sm:text-xl font-bold text-white">{exp.role}</h4>
                       {exp.featured && (
                         <span className="px-2 py-0.5 rounded-full bg-[#8B5CF6]/20 border border-[#8B5CF6]/40 text-[#d0bcff] font-mono text-[10px] uppercase font-semibold">
-                          Featured Internship
+                          {t.featuredBadge}
                         </span>
                       )}
                     </div>
@@ -128,9 +136,12 @@ export const Experience: React.FC = () => {
           <ScrollReveal direction="up" className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
             <div className="flex items-center gap-2">
               <span className="material-symbols-outlined text-[#EC4899] text-[22px]">verified</span>
-              <h3 className="text-xl font-bold text-[#dfe2f1]">
-                Sertifikasi Dicoding Indonesia
-              </h3>
+              <div>
+                <h3 className="text-xl font-bold text-[#dfe2f1]">
+                  {t.certsSectionTitle}
+                </h3>
+                <p className="text-xs text-[#958ea0]">{t.certsSubtitle}</p>
+              </div>
             </div>
             <a
               href="https://www.dicoding.com/users/ayii_mhmd/academies"
@@ -138,13 +149,13 @@ export const Experience: React.FC = () => {
               rel="noreferrer"
               className="text-xs text-[#d0bcff] hover:text-white flex items-center gap-1 font-mono transition-colors"
             >
-              <span>Profil Dicoding (Seluruh Sertifikat)</span>
+              <span>{language === 'id' ? 'Profil Dicoding (Seluruh Sertifikat)' : 'Dicoding Profile (All Certificates)'}</span>
               <span className="material-symbols-outlined text-[14px]">open_in_new</span>
             </a>
           </ScrollReveal>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {CERTIFICATIONS.map((cert, idx) => (
+            {certifications.map((cert, idx) => (
               <motion.div
                 key={idx}
                 initial={{ opacity: 0, y: 25 }}
@@ -157,7 +168,7 @@ export const Experience: React.FC = () => {
                 <div>
                   <div className="flex items-center justify-between mb-2">
                     <span className="px-2 py-0.5 rounded bg-[#10B981]/15 text-[#10B981] font-mono text-[10px] font-semibold uppercase">
-                      Terverifikasi
+                      {language === 'id' ? 'Terverifikasi' : 'Verified'}
                     </span>
                     <span className="font-mono text-xs text-[#958ea0]">{cert.date}</span>
                   </div>
@@ -168,7 +179,9 @@ export const Experience: React.FC = () => {
                 </div>
 
                 <div className="pt-2 border-t border-[#262a35]/60">
-                  <p className="font-mono text-[11px] text-[#958ea0] mb-1.5">Kompetensi Inti:</p>
+                  <p className="font-mono text-[11px] text-[#958ea0] mb-1.5">
+                    {language === 'id' ? 'Kompetensi Inti:' : 'Core Competencies:'}
+                  </p>
                   <div className="flex flex-wrap gap-1">
                     {cert.skills.map((s, sIdx) => (
                       <span

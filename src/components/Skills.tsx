@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { SKILLS_DATA } from '../data/portfolioData';
+import { SKILLS_DATA, getLocalizedSoftSkills } from '../data/portfolioData';
 import { ScrollReveal } from './ScrollReveal';
+import { useLanguage } from '../context/LanguageContext';
+import { TRANSLATIONS } from '../data/translations';
 
 export const Skills: React.FC = () => {
+  const { language } = useLanguage();
+  const t = TRANSLATIONS[language].skills;
   const [activeTab, setActiveTab] = useState<'all' | 'frontend' | 'backend'>('all');
 
   const filteredTechnologies =
@@ -13,17 +17,19 @@ export const Skills: React.FC = () => {
       ? SKILLS_DATA.backend
       : [...SKILLS_DATA.frontend, ...SKILLS_DATA.backend];
 
+  const softSkills = getLocalizedSoftSkills(language);
+
   return (
     <section id="skills" className="w-full bg-[#0a0e18] py-24 border-y border-[#171b26] relative overflow-hidden">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-14">
         {/* Section Titles */}
         <ScrollReveal direction="up" threshold={0.2} className="flex flex-col items-center text-center gap-2">
           <span className="font-mono text-xs uppercase tracking-widest text-[#d0bcff]">
-            What do I know?
+            {t.badge}
           </span>
-          <h2 className="text-3xl sm:text-4xl font-bold text-[#dfe2f1]">Skills &amp; Tech Stack</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#dfe2f1]">{t.title}</h2>
           <p className="text-sm sm:text-base text-[#cbc3d7] max-w-lg">
-            Berikut kumpulan teknologi, pustaka, dan bahasa pemrograman yang saya gunakan dalam merancang produk digital:
+            {t.subtitle}
           </p>
         </ScrollReveal>
 
@@ -33,7 +39,7 @@ export const Skills: React.FC = () => {
             <div className="flex items-center gap-2">
               <span className="material-symbols-outlined text-[#8B5CF6] text-[22px]">layers</span>
               <h3 className="text-lg sm:text-xl font-semibold text-[#dfe2f1]">
-                Technologies &amp; Frameworks
+                {t.techSectionTitle}
               </h3>
             </div>
 
@@ -55,7 +61,7 @@ export const Skills: React.FC = () => {
                     transition={{ type: 'spring', stiffness: 350, damping: 30 }}
                   />
                 )}
-                Semua ({SKILLS_DATA.frontend.length + SKILLS_DATA.backend.length})
+                {t.filterAll} ({SKILLS_DATA.frontend.length + SKILLS_DATA.backend.length})
               </button>
               <button
                 type="button"
@@ -73,7 +79,7 @@ export const Skills: React.FC = () => {
                     transition={{ type: 'spring', stiffness: 350, damping: 30 }}
                   />
                 )}
-                Front-End ({SKILLS_DATA.frontend.length})
+                {t.filterFrontend} ({SKILLS_DATA.frontend.length})
               </button>
               <button
                 type="button"
@@ -91,7 +97,7 @@ export const Skills: React.FC = () => {
                     transition={{ type: 'spring', stiffness: 350, damping: 30 }}
                   />
                 )}
-                Back-End &amp; DB ({SKILLS_DATA.backend.length})
+                {t.filterBackend} ({SKILLS_DATA.backend.length})
               </button>
             </div>
           </ScrollReveal>
@@ -129,7 +135,7 @@ export const Skills: React.FC = () => {
           <ScrollReveal direction="up" className="flex items-center gap-2">
             <span className="material-symbols-outlined text-[#EC4899] text-[22px]">construction</span>
             <h3 className="text-lg sm:text-xl font-semibold text-[#dfe2f1]">
-              Workflow Tools &amp; Ecosystem
+              {t.toolsSectionTitle}
             </h3>
           </ScrollReveal>
 
@@ -164,12 +170,12 @@ export const Skills: React.FC = () => {
           <ScrollReveal direction="up" className="flex items-center gap-2">
             <span className="material-symbols-outlined text-[#10B981] text-[22px]">psychology</span>
             <h3 className="text-lg sm:text-xl font-semibold text-[#dfe2f1]">
-              Soft Skills &amp; Nilai Kerja
+              {t.softSkillsSectionTitle}
             </h3>
           </ScrollReveal>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {SKILLS_DATA.softSkills.map((item, idx) => (
+            {softSkills.map((item, idx) => (
               <motion.div
                 key={idx}
                 initial={{ opacity: 0, y: 25 }}

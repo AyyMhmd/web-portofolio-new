@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { PERSONAL_INFO } from '../data/portfolioData';
+import { useLanguage } from '../context/LanguageContext';
+import { TRANSLATIONS } from '../data/translations';
 
 interface NavbarProps {
   activeSection: string;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
+  const { language, setLanguage } = useLanguage();
+  const t = TRANSLATIONS[language];
+
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [copied, setCopied] = useState(false);
@@ -26,12 +31,12 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
   };
 
   const navLinks = [
-    { label: 'Home', href: '#home', id: 'home' },
-    { label: 'About', href: '#about', id: 'about' },
-    { label: 'Experience', href: '#experience', id: 'experience' },
-    { label: 'Skills', href: '#skills', id: 'skills' },
-    { label: 'Projects', href: '#projects', id: 'projects' },
-    { label: 'Contact', href: '#contact', id: 'contact' },
+    { label: t.nav.home, href: '#home', id: 'home' },
+    { label: t.nav.about, href: '#about', id: 'about' },
+    { label: t.nav.experience, href: '#experience', id: 'experience' },
+    { label: t.nav.skills, href: '#skills', id: 'skills' },
+    { label: t.nav.projects, href: '#projects', id: 'projects' },
+    { label: t.nav.contact, href: '#contact', id: 'contact' },
   ];
 
   return (
@@ -45,38 +50,38 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
           : 'bg-[#0f131d]/75 backdrop-blur-md'
       }`}
     >
-      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
-        {/* Brand Logo */}
-        <div className="flex items-center gap-4">
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-3">
+        {/* Brand Logo & Status */}
+        <div className="flex items-center gap-3 xl:gap-4 flex-shrink-0">
           <a
             href="#home"
             className="group flex items-center gap-1.5 font-mono text-sm tracking-tight transition-transform hover:scale-105"
           >
             <span className="text-[#8B5CF6] font-bold text-lg">&lt;</span>
-            <span className="text-base sm:text-lg font-semibold text-[#dfe2f1] group-hover:text-[#d0bcff] transition-colors font-sans">
+            <span className="text-base sm:text-lg font-semibold text-[#dfe2f1] group-hover:text-[#d0bcff] transition-colors font-sans whitespace-nowrap">
               {PERSONAL_INFO.shortName}
             </span>
             <span className="text-[#EC4899] font-bold text-lg">/&gt;</span>
           </a>
 
-          {/* Available for hire badge */}
-          <div className="hidden xl:flex items-center gap-2 bg-[#171b26] border border-[#262a35] px-3 py-1 rounded-full">
+          {/* Available for hire badge (Visible on large screens) */}
+          <div className="hidden 2xl:flex items-center gap-2 bg-[#171b26] border border-[#262a35] px-3 py-1 rounded-full whitespace-nowrap">
             <span className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse"></span>
             <span className="font-mono text-[11px] font-semibold text-[#10B981] uppercase tracking-wider">
-              Available for hire
+              {t.nav.availableBadge}
             </span>
           </div>
         </div>
 
         {/* Desktop Navigation Links */}
-        <nav className="hidden lg:flex items-center gap-1 p-1 bg-[#171b26]/60 rounded-xl border border-[#262a35]/60">
+        <nav className="hidden lg:flex items-center gap-0.5 xl:gap-1 p-1 bg-[#171b26]/70 rounded-xl border border-[#262a35]/70 flex-shrink-0 shadow-sm backdrop-blur-md">
           {navLinks.map((link) => {
             const isActive = activeSection === link.id;
             return (
               <a
                 key={link.id}
                 href={link.href}
-                className={`relative px-3.5 py-1.5 text-xs sm:text-sm font-medium transition-all rounded-lg ${
+                className={`relative px-2.5 xl:px-3.5 py-1.5 text-xs xl:text-sm font-medium transition-all rounded-lg whitespace-nowrap ${
                   isActive
                     ? 'text-[#340080] font-semibold'
                     : 'text-[#cbc3d7] hover:text-[#dfe2f1] hover:bg-[#262a35]/60'
@@ -95,10 +100,43 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
           })}
         </nav>
 
-        {/* Right Action Icons & Buttons */}
-        <div className="flex items-center gap-2 sm:gap-3">
-          {/* Quick Icon Links */}
-          <div className="hidden sm:flex items-center gap-1 bg-[#171b26] p-1 rounded-lg border border-[#262a35]">
+        {/* Right Action Icons & Controls */}
+        <div className="flex items-center gap-2 sm:gap-2.5 flex-shrink-0">
+          {/* Language Switcher (Fixed width pills to avoid any layout jitter) */}
+          <div
+            className="flex items-center bg-[#171b26] p-0.5 rounded-lg border border-[#262a35] flex-shrink-0"
+            title={t.nav.switchLang}
+          >
+            <button
+              onClick={() => setLanguage('id')}
+              type="button"
+              className={`px-2 py-1 text-xs font-mono font-semibold rounded-md transition-all flex items-center justify-center gap-1 cursor-pointer min-w-[44px] ${
+                language === 'id'
+                  ? 'bg-gradient-to-r from-[#8B5CF6] to-[#a078ff] text-white shadow-sm font-bold'
+                  : 'text-[#cbc3d7] hover:text-white hover:bg-[#262a35]/40'
+              }`}
+              aria-label="Ganti Bahasa ke Indonesia"
+            >
+              <span className="text-[12px] leading-none">🇮🇩</span>
+              <span>ID</span>
+            </button>
+            <button
+              onClick={() => setLanguage('en')}
+              type="button"
+              className={`px-2 py-1 text-xs font-mono font-semibold rounded-md transition-all flex items-center justify-center gap-1 cursor-pointer min-w-[44px] ${
+                language === 'en'
+                  ? 'bg-gradient-to-r from-[#8B5CF6] to-[#EC4899] text-white shadow-sm font-bold'
+                  : 'text-[#cbc3d7] hover:text-white hover:bg-[#262a35]/40'
+              }`}
+              aria-label="Switch Language to English"
+            >
+              <span className="text-[12px] leading-none">🇬🇧</span>
+              <span>EN</span>
+            </button>
+          </div>
+
+          {/* Quick Social & Contact Icons (Displayed on XL+ to keep LG clean) */}
+          <div className="hidden xl:flex items-center gap-1 bg-[#171b26] p-1 rounded-lg border border-[#262a35] flex-shrink-0">
             <a
               href={PERSONAL_INFO.github}
               target="_blank"
@@ -127,7 +165,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
               onClick={copyEmail}
               type="button"
               aria-label="Copy Email"
-              title={copied ? "Email Copied!" : "Copy Email"}
+              title={copied ? t.nav.emailCopied : "Copy Email"}
               className="w-8 h-8 rounded-lg flex items-center justify-center text-[#cbc3d7] hover:bg-[#262a35] hover:text-[#10B981] transition-all relative cursor-pointer"
             >
               <span className="material-symbols-outlined text-[18px]">
@@ -135,21 +173,21 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
               </span>
               {copied && (
                 <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 px-2 py-0.5 bg-[#10B981] text-[#0f131d] text-[10px] font-mono rounded font-bold whitespace-nowrap shadow-md">
-                  Tersalin!
+                  {t.nav.emailCopied}
                 </span>
               )}
             </button>
           </div>
 
-          {/* Hire Me Button */}
+          {/* Hire Me CTA Button */}
           <a
             href="#contact"
-            className="hidden sm:inline-flex items-center justify-center px-4 py-2 rounded-lg bg-gradient-to-r from-[#8B5CF6] to-[#EC4899] text-white text-xs sm:text-sm font-semibold tracking-wide shadow-[0_0_20px_rgba(139,92,246,0.35)] hover:shadow-[0_0_25px_rgba(236,72,153,0.5)] transition-all transform hover:-translate-y-0.5 active:translate-y-0"
+            className="hidden sm:inline-flex items-center justify-center px-3.5 xl:px-4 py-2 rounded-lg bg-gradient-to-r from-[#8B5CF6] to-[#EC4899] text-white text-xs sm:text-sm font-semibold tracking-wide shadow-[0_0_20px_rgba(139,92,246,0.35)] hover:shadow-[0_0_25px_rgba(236,72,153,0.5)] transition-all transform hover:-translate-y-0.5 active:translate-y-0 whitespace-nowrap"
           >
-            Hire Me
+            {t.nav.hireMe}
           </a>
 
-          {/* Profile Avatar / Indicator */}
+          {/* Profile Avatar */}
           <a
             href="#about"
             title="Ayi Muhamad Nasrulloh"
@@ -158,7 +196,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
             <span className="material-symbols-outlined text-[#3c0091] text-[18px]">person</span>
           </a>
 
-          {/* Mobile Hamburger Toggle */}
+          {/* Mobile Hamburger Menu Toggle */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             type="button"
@@ -180,15 +218,47 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.25 }}
-            className="lg:hidden bg-[#0f131d]/98 border-b border-[#262a35] px-4 pt-3 pb-6 flex flex-col gap-2 overflow-hidden"
+            className="lg:hidden bg-[#0f131d]/98 border-b border-[#262a35] px-4 pt-3 pb-6 flex flex-col gap-2 overflow-hidden shadow-2xl"
           >
-            <div className="flex items-center justify-between pb-2 border-b border-[#262a35]/60 mb-1">
-              <span className="font-mono text-xs text-[#06B6D4]">Menu Navigasi</span>
-              <div className="flex items-center gap-1.5">
-                <span className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse"></span>
-                <span className="text-[11px] font-mono text-[#10B981]">Available for hire</span>
+            <div className="flex items-center justify-between pb-2.5 border-b border-[#262a35]/60 mb-1">
+              <span className="font-mono text-xs text-[#06B6D4] font-semibold">{t.nav.navMenu}</span>
+              
+              <div className="flex items-center gap-2">
+                <div className="flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-[#171b26] border border-[#262a35]">
+                  <span className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse"></span>
+                  <span className="text-[10px] font-mono text-[#10B981] uppercase font-semibold">{t.nav.availableBadge}</span>
+                </div>
+
+                {/* Mobile Language Switcher */}
+                <div className="flex items-center bg-[#171b26] p-0.5 rounded-lg border border-[#262a35]">
+                  <button
+                    onClick={() => setLanguage('id')}
+                    type="button"
+                    className={`px-2 py-0.5 text-xs font-mono font-semibold rounded-md transition-all flex items-center gap-1 ${
+                      language === 'id'
+                        ? 'bg-gradient-to-r from-[#8B5CF6] to-[#a078ff] text-white shadow-sm font-bold'
+                        : 'text-[#cbc3d7] hover:text-white'
+                    }`}
+                  >
+                    <span className="text-[12px]">🇮🇩</span>
+                    <span>ID</span>
+                  </button>
+                  <button
+                    onClick={() => setLanguage('en')}
+                    type="button"
+                    className={`px-2 py-0.5 text-xs font-mono font-semibold rounded-md transition-all flex items-center gap-1 ${
+                      language === 'en'
+                        ? 'bg-gradient-to-r from-[#8B5CF6] to-[#EC4899] text-white shadow-sm font-bold'
+                        : 'text-[#cbc3d7] hover:text-white'
+                    }`}
+                  >
+                    <span className="text-[12px]">🇬🇧</span>
+                    <span>EN</span>
+                  </button>
+                </div>
               </div>
             </div>
+
             {navLinks.map((link) => (
               <a
                 key={link.id}
@@ -203,21 +273,22 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
                 {link.label}
               </a>
             ))}
+
             <div className="pt-3 mt-1 border-t border-[#262a35] flex items-center gap-2">
               <a
                 href="#contact"
                 onClick={() => setMobileMenuOpen(false)}
-                className="flex-1 py-2 text-center rounded-lg bg-gradient-to-r from-[#8B5CF6] to-[#EC4899] text-white text-xs font-semibold"
+                className="flex-1 py-2 text-center rounded-lg bg-gradient-to-r from-[#8B5CF6] to-[#EC4899] text-white text-xs font-semibold whitespace-nowrap"
               >
-                Hire Me
+                {t.nav.hireMe}
               </a>
               <a
                 href={PERSONAL_INFO.cvUrl}
                 download="CV_Ayi_Muhamad_Nasrulloh.pdf"
-                className="px-3 py-2 rounded-lg bg-[#171b26] border border-[#262a35] text-xs font-medium text-[#d0bcff] hover:bg-[#262a35] flex items-center gap-1"
+                className="px-3.5 py-2 rounded-lg bg-[#171b26] border border-[#262a35] text-xs font-medium text-[#d0bcff] hover:bg-[#262a35] flex items-center gap-1 whitespace-nowrap"
               >
                 <span className="material-symbols-outlined text-[16px]">download</span>
-                <span>CV</span>
+                <span>{t.nav.downloadCv}</span>
               </a>
             </div>
           </motion.div>

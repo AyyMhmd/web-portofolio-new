@@ -1,14 +1,18 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { PERSONAL_INFO } from '../data/portfolioData';
+import { useLanguage } from '../context/LanguageContext';
+import { TRANSLATIONS } from '../data/translations';
 
 export const Hero: React.FC = () => {
+  const { language } = useLanguage();
+  const t = TRANSLATIONS[language];
   const [copiedCode, setCopiedCode] = useState(false);
 
   const codeSnippet = `const developer = {
   name: 'Ayi Muhamad Nasrulloh',
-  role: 'Front-End Web Developer',
-  education: 'S1 Informatika (STT Cipasung)',
+  role: '${t.hero.codeSnippetRole}',
+  education: '${t.hero.codeSnippetEdu}',
   gpa: 3.76,
   internship: 'Dicoding Indonesia (MSIB)',
   focus: ['React & SPA', 'JavaScript ES6+', 'UI/UX & Clean Code'],
@@ -21,7 +25,7 @@ export const Hero: React.FC = () => {
   fuel: '☕ Passion & Code'
 };
 
-// System ready to deploy
+${t.hero.codeSnippetReady}
 export default developer;`;
 
   const handleCopyCode = () => {
@@ -64,13 +68,13 @@ export default developer;`;
             >
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#262a35] border border-[#313540] shadow-inner">
                 <span className="font-mono text-xs font-semibold text-[#d0bcff] uppercase tracking-wider">
-                  Halo, Saya
+                  {t.hero.greetingBadge}
                 </span>
               </div>
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#171b26] border border-[#262a35] shadow-sm">
                 <span className="w-2 h-2 rounded-full bg-[#06B6D4] animate-ping"></span>
                 <span className="font-mono text-xs font-semibold text-[#06B6D4] uppercase tracking-wider">
-                  Frontend Web Developer
+                  {t.hero.roleBadge}
                 </span>
               </div>
             </motion.div>
@@ -87,7 +91,7 @@ export default developer;`;
               </h1>
               <p className="font-mono text-xs sm:text-sm text-[#d0bcff] mt-2 flex flex-wrap items-center gap-2">
                 <span className="text-[#8B5CF6] font-semibold">&lt;code&gt;</span>
-                Crafting interactive web real estate with passion
+                {t.hero.tagline}
                 <span className="text-[#EC4899] font-semibold">&lt;/code&gt;</span>
               </p>
             </motion.div>
@@ -99,7 +103,13 @@ export default developer;`;
               transition={{ duration: 0.6, delay: 0.3 }}
               className="text-base sm:text-lg text-[#cbc3d7] max-w-xl leading-relaxed"
             >
-              Lulusan S1 Informatika Sekolah Tinggi Teknologi Cipasung dengan IPK <span className="text-white font-semibold underline decoration-[#8B5CF6] decoration-2 underline-offset-4">3.76</span> dan Alumni Web Developer Intern di <span className="text-white font-semibold">Dicoding Indonesia</span> (MSIB). Berpengalaman membangun antarmuka web interaktif, cepat, rapi, dan responsif dengan React, modern JavaScript, serta integrasi RESTful API.
+              {t.hero.description}{' '}
+              <span className="text-white font-semibold underline decoration-[#8B5CF6] decoration-2 underline-offset-4">3.76</span>{' '}
+              {language === 'id' ? (
+                <>dan Alumni Web Developer Intern di <span className="text-white font-semibold">Dicoding Indonesia</span> (MSIB). Berpengalaman membangun antarmuka web interaktif, cepat, rapi, dan responsif dengan React, modern JavaScript, serta integrasi RESTful API.</>
+              ) : (
+                <>and Web Developer Intern Alum at <span className="text-white font-semibold">Dicoding Indonesia</span> (MSIB). Experienced in crafting interactive, high-performance, and responsive web applications with React, modern JavaScript, and RESTful API integrations.</>
+              )}
             </motion.p>
 
             {/* CTA Action Buttons */}
@@ -114,14 +124,14 @@ export default developer;`;
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-gradient-to-r from-[#8B5CF6] to-[#EC4899] text-white text-sm sm:text-base font-semibold tracking-wide shadow-[0_0_24px_rgba(139,92,246,0.35)] hover:shadow-[0_0_32px_rgba(236,72,153,0.5)] transition-all transform hover:-translate-y-0.5 active:translate-y-0"
               >
                 <span className="material-symbols-outlined text-[20px]">chat</span>
-                <span>Contact Me</span>
+                <span>{t.hero.contactBtn}</span>
               </a>
 
               <a
                 href="#projects"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-[#262a35] hover:bg-[#313540] border border-[#353944] text-[#dfe2f1] text-sm sm:text-base font-medium transition-all shadow-sm hover:shadow-md hover:-translate-y-0.5"
               >
-                <span>View Portfolio</span>
+                <span>{t.hero.viewPortfolioBtn}</span>
                 <span className="material-symbols-outlined text-[18px] text-[#d0bcff]">arrow_forward</span>
               </a>
 
@@ -132,7 +142,7 @@ export default developer;`;
                 title="Download Curriculum Vitae PDF"
               >
                 <span className="material-symbols-outlined text-[18px]">description</span>
-                <span>Download CV</span>
+                <span>{t.hero.downloadCvBtn}</span>
               </a>
             </motion.div>
 
@@ -143,7 +153,7 @@ export default developer;`;
               transition={{ duration: 0.6, delay: 0.5 }}
               className="flex flex-wrap items-center gap-2.5 pt-2"
             >
-              <span className="font-mono text-xs text-[#958ea0] uppercase mr-1 tracking-wider">Signals:</span>
+              <span className="font-mono text-xs text-[#958ea0] uppercase mr-1 tracking-wider">{t.hero.signalsLabel}</span>
               
               {/* GitHub */}
               <a
@@ -214,7 +224,7 @@ export default developer;`;
                     <span className="material-symbols-outlined text-[14px]">
                       {copiedCode ? 'check' : 'content_copy'}
                     </span>
-                    <span className="hidden sm:inline">{copiedCode ? 'Copied' : 'Copy'}</span>
+                    <span className="hidden sm:inline">{copiedCode ? (language === 'id' ? 'Tersalin' : 'Copied') : (language === 'id' ? 'Salin' : 'Copy')}</span>
                   </button>
                   <span className="font-mono text-[11px] text-[#10B981] bg-[#1c1f2a] border border-[#10B981]/30 px-2 py-0.5 rounded">
                     active
@@ -227,8 +237,8 @@ export default developer;`;
                 <code>
                   <span className="text-[#EC4899]">const</span> developer = &#123;{'\n'}
                   {'  '}<span className="text-[#d0bcff]">name</span>: <span className="text-[#10B981]">'Ayi Muhamad Nasrulloh'</span>,{'\n'}
-                  {'  '}<span className="text-[#d0bcff]">role</span>: <span className="text-[#10B981]">'Front-End Web Developer'</span>,{'\n'}
-                  {'  '}<span className="text-[#d0bcff]">education</span>: <span className="text-[#06B6D4]">'S1 Informatika, STT Cipasung'</span>,{'\n'}
+                  {'  '}<span className="text-[#d0bcff]">role</span>: <span className="text-[#10B981]">'{t.hero.codeSnippetRole}'</span>,{'\n'}
+                  {'  '}<span className="text-[#d0bcff]">education</span>: <span className="text-[#06B6D4]">'{t.hero.codeSnippetEdu}'</span>,{'\n'}
                   {'  '}<span className="text-[#d0bcff]">gpa</span>: <span className="text-[#ffb0cd]">3.76</span>,{'\n'}
                   {'  '}<span className="text-[#d0bcff]">internship</span>: <span className="text-[#10B981]">'Dicoding Indonesia (MSIB)'</span>,{'\n'}
                   {'  '}<span className="text-[#d0bcff]">focus</span>: [<span className="text-[#06B6D4]">'React & SPA'</span>, <span className="text-[#06B6D4]">'UI/UX & Clean Code'</span>],{'\n'}
@@ -240,7 +250,7 @@ export default developer;`;
                   {'  '}<span className="text-[#d0bcff]">availableForHire</span>: <span className="text-[#8B5CF6]">true</span>,{'\n'}
                   {'  '}<span className="text-[#d0bcff]">fuel</span>: <span className="text-[#10B981]">'☕ Passion & Clean Code'</span>{'\n'}
                   &#125;;{'\n\n'}
-                  <span className="text-[#958ea0]">// System ready to deploy</span>{'\n'}
+                  <span className="text-[#958ea0]">{t.hero.codeSnippetReady}</span>{'\n'}
                   <span className="text-[#8B5CF6]">export default</span> developer;
                 </code>
               </pre>

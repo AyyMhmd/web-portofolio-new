@@ -1,5 +1,7 @@
 import React from 'react';
 import { Project } from '../data/portfolioData';
+import { useLanguage } from '../context/LanguageContext';
+import { TRANSLATIONS } from '../data/translations';
 
 interface ProjectModalProps {
   project: Project | null;
@@ -7,10 +9,16 @@ interface ProjectModalProps {
 }
 
 export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
+  const { language } = useLanguage();
+  const t = TRANSLATIONS[language].projectModal;
+
   if (!project) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-200">
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-200"
+      onClick={onClose}
+    >
       <div
         className="relative w-full max-w-2xl bg-[#171b26] border border-[#262a35] rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh]"
         onClick={(e) => e.stopPropagation()}
@@ -27,8 +35,8 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
           <button
             onClick={onClose}
             type="button"
-            className="absolute top-4 right-4 w-9 h-9 rounded-full bg-black/60 hover:bg-black/80 text-white flex items-center justify-center transition-colors border border-white/10"
-            aria-label="Tutup modal"
+            className="absolute top-4 right-4 w-9 h-9 rounded-full bg-black/60 hover:bg-black/80 text-white flex items-center justify-center transition-colors border border-white/10 cursor-pointer"
+            aria-label={t.close}
           >
             <span className="material-symbols-outlined text-[20px]">close</span>
           </button>
@@ -51,14 +59,14 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
         <div className="p-6 overflow-y-auto space-y-5 text-sm text-[#cbc3d7]">
           <div>
             <h4 className="text-xs font-mono uppercase tracking-wider text-[#d0bcff] mb-1.5">
-              Deskripsi Proyek
+              {t.overviewTitle}
             </h4>
             <p className="leading-relaxed text-sm text-[#dfe2f1]">{project.longDescription}</p>
           </div>
 
           <div>
             <h4 className="text-xs font-mono uppercase tracking-wider text-[#06B6D4] mb-2">
-              Fitur Utama &amp; Implementasi
+              {t.featuresTitle}
             </h4>
             <ul className="space-y-1.5">
               {project.features.map((feature, idx) => (
@@ -74,7 +82,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
 
           <div>
             <h4 className="text-xs font-mono uppercase tracking-wider text-[#EC4899] mb-2">
-              Teknologi yang Digunakan
+              {t.techTitle}
             </h4>
             <div className="flex flex-wrap gap-1.5">
               {project.tags.map((tag, idx) => (
@@ -93,27 +101,38 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
         <div className="p-4 sm:p-5 border-t border-[#262a35] bg-[#171b26] flex flex-wrap items-center justify-between gap-3">
           <div className="flex items-center gap-1.5 text-xs text-[#10B981] font-mono">
             <span className="w-2 h-2 rounded-full bg-[#10B981]"></span>
-            <span>Tercatat dalam CV Resmi</span>
+            <span>{language === 'id' ? 'Tercatat dalam CV Resmi' : 'Documented in Official CV'}</span>
           </div>
 
           <div className="flex items-center gap-2">
+            {project.liveUrl && (
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-gradient-to-r from-[#8B5CF6] to-[#EC4899] text-white text-xs font-semibold hover:opacity-95 transition-all shadow-sm"
+              >
+                <span className="material-symbols-outlined text-[16px]">open_in_new</span>
+                <span>{t.liveDemo}</span>
+              </a>
+            )}
             {project.githubUrl && (
               <a
                 href={project.githubUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-[#262a35] hover:bg-[#353944] text-[#dfe2f1] text-xs font-semibold transition-all"
+                className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-[#262a35] hover:bg-[#353944] text-[#dfe2f1] text-xs font-semibold transition-all border border-[#353944]"
               >
                 <span className="material-symbols-outlined text-[16px]">code</span>
-                <span>GitHub Repo</span>
+                <span>GitHub</span>
               </a>
             )}
             <button
               onClick={onClose}
               type="button"
-              className="px-4 py-2 rounded-lg bg-[#8B5CF6] hover:bg-[#7c4ae6] text-white text-xs font-semibold transition-all"
+              className="px-4 py-2 rounded-lg bg-[#262a35] hover:bg-[#353944] text-[#dfe2f1] text-xs font-semibold transition-all border border-[#353944] cursor-pointer"
             >
-              Tutup
+              {t.close}
             </button>
           </div>
         </div>

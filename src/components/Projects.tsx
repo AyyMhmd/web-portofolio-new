@@ -1,17 +1,28 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { PROJECTS, Project } from '../data/portfolioData';
+import { getLocalizedProjects, Project } from '../data/portfolioData';
 import { ProjectModal } from './ProjectModal';
 import { ScrollReveal } from './ScrollReveal';
+import { useLanguage } from '../context/LanguageContext';
+import { TRANSLATIONS } from '../data/translations';
 
 export const Projects: React.FC = () => {
+  const { language } = useLanguage();
+  const t = TRANSLATIONS[language].projects;
+
   const [activeCategory, setActiveCategory] = useState<'all' | 'frontend' | 'fullstack' | 'ai-iot'>('all');
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [selectedProjectId, setSelectedProjectId] = useState<string | null>(null);
+
+  const localizedProjects = getLocalizedProjects(language);
 
   const filteredProjects =
     activeCategory === 'all'
-      ? PROJECTS
-      : PROJECTS.filter((p) => p.category === activeCategory);
+      ? localizedProjects
+      : localizedProjects.filter((p) => p.category === activeCategory);
+
+  const selectedProject = selectedProjectId
+    ? localizedProjects.find((p) => p.id === selectedProjectId) || null
+    : null;
 
   const getBadgeStyle = (color: Project['badgeColor']) => {
     switch (color) {
@@ -34,21 +45,21 @@ export const Projects: React.FC = () => {
         {/* Section Header */}
         <ScrollReveal direction="up" threshold={0.2} className="flex flex-col items-center text-center gap-2">
           <span className="font-mono text-xs uppercase tracking-widest text-[#d0bcff]">
-            What I've done?
+            {t.badge}
           </span>
-          <h2 className="text-3xl sm:text-4xl font-bold text-[#dfe2f1]">Featured Projects</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#dfe2f1]">{t.title}</h2>
           <p className="text-sm sm:text-base text-[#cbc3d7] max-w-lg">
-            Kumpulan proyek pilihan mulai dari aplikasi web interaktif, Single Page Application, sistem informasi manajemen, hingga AI tracking:
+            {t.subtitle}
           </p>
         </ScrollReveal>
 
         {/* Filter Navigation */}
         <ScrollReveal direction="up" delay={0.1} className="flex flex-wrap items-center justify-center gap-2">
           {[
-            { id: 'all', label: 'Semua Proyek' },
-            { id: 'frontend', label: 'Front-End & SPA' },
-            { id: 'fullstack', label: 'Fullstack Systems' },
-            { id: 'ai-iot', label: 'AI & IoT' },
+            { id: 'all', label: t.filterAll },
+            { id: 'frontend', label: t.filterFrontend },
+            { id: 'fullstack', label: t.filterFullstack },
+            { id: 'ai-iot', label: t.filterAiIot },
           ].map((cat) => (
             <button
               key={cat.id}
@@ -140,11 +151,11 @@ export const Projects: React.FC = () => {
                   {/* Action Buttons */}
                   <div className="pt-3 border-t border-[#262a35] flex items-center justify-between gap-2">
                     <button
-                      onClick={() => setSelectedProject(project)}
+                      onClick={() => setSelectedProjectId(project.id)}
                       type="button"
                       className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-[#a078ff] text-[#340080] text-xs font-semibold hover:bg-[#d0bcff] transition-all shadow-sm cursor-pointer"
                     >
-                      <span>Detail Proyek</span>
+                      <span>{t.viewDetailBtn}</span>
                       <span className="material-symbols-outlined text-[16px]">visibility</span>
                     </button>
 
@@ -177,7 +188,7 @@ export const Projects: React.FC = () => {
       {/* Interactive Project Deep-Dive Modal */}
       <ProjectModal
         project={selectedProject}
-        onClose={() => setSelectedProject(null)}
+        onClose={() => setSelectedProjectId(null)}
       />
     </section>
   );

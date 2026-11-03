@@ -1,21 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import { useLanguage } from '../context/LanguageContext';
+import { TRANSLATIONS } from '../data/translations';
 
 interface InitialLoaderProps {
   onComplete: () => void;
 }
 
 export const InitialLoader: React.FC<InitialLoaderProps> = ({ onComplete }) => {
+  const { language } = useLanguage();
+  const t = TRANSLATIONS[language];
+  const logs = t.loader.logs;
+
   const [progress, setProgress] = useState(0);
   const [logIndex, setLogIndex] = useState(0);
-
-  const logs = [
-    'System init: AyiMN Portfolio...',
-    'Loading React & UI components...',
-    'Fetching experience & projects...',
-    'Optimizing responsive layout...',
-    'Portfolio ready! Launching...'
-  ];
 
   useEffect(() => {
     // Progress counter animation
@@ -159,9 +157,9 @@ export const InitialLoader: React.FC<InitialLoaderProps> = ({ onComplete }) => {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.6 }}
           onClick={onComplete}
-          className="mt-6 text-[11px] font-mono text-[#958ea0] hover:text-[#dfe2f1] px-3 py-1 rounded-md hover:bg-[#171b26] transition-colors"
+          className="mt-6 text-[11px] font-mono text-[#958ea0] hover:text-[#dfe2f1] px-3 py-1 rounded-md hover:bg-[#171b26] transition-colors cursor-pointer"
         >
-          Skip Intro [ESC] &rarr;
+          {language === 'id' ? 'Lewati Intro [ESC] →' : 'Skip Intro [ESC] →'}
         </motion.button>
       </div>
     </motion.div>

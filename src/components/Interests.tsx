@@ -1,35 +1,37 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { ScrollReveal } from './ScrollReveal';
+import { useLanguage } from '../context/LanguageContext';
+import { TRANSLATIONS } from '../data/translations';
 
 export const Interests: React.FC = () => {
+  const { language } = useLanguage();
+  const t = TRANSLATIONS[language].interests;
+
   const cards = [
     {
       icon: 'palette',
       iconColor: 'text-[#8B5CF6]',
       iconBg: 'bg-[#8B5CF6]/15',
-      title: 'Designing',
-      description:
-        'Sangat menyukai perancangan antarmuka pengguna (UI/UX). Setiap kali melihat tampilan web yang kurang optimal, saya tertantang menjadikannya lebih estetik, rapi, dan mudah dipahami. Memperhatikan detail warna, micro-interactions, serta konsistensi visual di Figma.',
-      tags: 'FIGMA • UI/UX • AESTHETICS & ACCESSIBILITY',
+      title: t.designing.title,
+      description: t.designing.description,
+      tags: t.designing.tags,
     },
     {
       icon: 'code',
       iconColor: 'text-[#06B6D4]',
       iconBg: 'bg-[#06B6D4]/15',
-      title: 'Developing',
-      description:
-        'Setelah desain matang, saya menuangkannya ke dalam kode nyata. Membangun aplikasi web modern menggunakan React, JavaScript ES6+, dan arsitektur Single Page Application (SPA). Menulis kode yang bersih, modular, dan terstruktur sesuai standar industri.',
-      tags: 'REACT • JAVASCRIPT • SPA • CLEAN CODE',
+      title: t.developing.title,
+      description: t.developing.description,
+      tags: t.developing.tags,
     },
     {
       icon: 'rocket_launch',
       iconColor: 'text-[#EC4899]',
       iconBg: 'bg-[#EC4899]/15',
-      title: 'Expanding',
-      description:
-        'Melangkah lebih jauh dari sekadar tampilan statis. Mengintegrasikan API eksternal, otentikasi Supabase, backend Python Django / Laravel, optimasi performa web, hingga integrasi kecerdasan buatan berbasis computer vision seperti WebCam tracking pada e-Syarat.',
-      tags: 'FULLSTACK • REST API • SUPABASE • AI TRACKING',
+      title: t.expanding.title,
+      description: t.expanding.description,
+      tags: t.expanding.tags,
     },
   ];
 
@@ -39,9 +41,9 @@ export const Interests: React.FC = () => {
         {/* Section Header */}
         <ScrollReveal direction="up" threshold={0.2} className="flex flex-col items-center text-center gap-2">
           <span className="font-mono text-xs uppercase tracking-widest text-[#d0bcff]">
-            Interests
+            {t.badge}
           </span>
-          <h2 className="text-3xl sm:text-4xl font-bold text-[#dfe2f1]">Things I Love</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#dfe2f1]">{t.title}</h2>
           <div className="w-14 h-1 bg-gradient-to-r from-[#8B5CF6] to-[#EC4899] rounded-full mt-1"></div>
         </ScrollReveal>
 

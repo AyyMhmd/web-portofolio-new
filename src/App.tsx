@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { AnimatePresence } from 'motion/react';
+import { LanguageProvider } from './context/LanguageContext';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { Interests } from './components/Interests';
@@ -52,7 +53,7 @@ export default function App() {
   }, [isLoading]);
 
   return (
-    <>
+    <LanguageProvider>
       {/* Initial Access Entrance Preloader */}
       <AnimatePresence mode="wait">
         {isLoading && (
@@ -97,6 +98,6 @@ export default function App() {
         {/* Floating Scroll To Top Button */}
         <ScrollToTop />
       </div>
-    </>
+    </LanguageProvider>
   );
 }
